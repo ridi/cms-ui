@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Menu } from './components';
 
 export default () => {
-  ReactDOM.render(<div>Ridibooks CMS UI</div>, document.getElementById('root'));
+  ReactDOM.render(<Menu />, document.getElementById('root'));
 };
