@@ -10,6 +10,8 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@ridi/eslint-config": "^4.0.0",
+    "react-app-rewire-eslint": "^0.2.3",
     "react-app-rewired": "^1.5.0",
     "react-scripts": "^1.1.1"
   }

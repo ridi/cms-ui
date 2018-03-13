@@ -1,4 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import render from './index.jsx';
 
-ReactDOM.render(<div>Ridibooks CMS UI</div>, document.getElementById('root'));
+render();
