@@ -1,6 +1,11 @@
 const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
+const replacePaths = require('./replacePaths');
+
+replacePaths({
+  appIndexJs: 'src/index.jsx',
+});
 
 module.exports = {
   webpack: (config, env) => {
@@ -11,7 +16,6 @@ module.exports = {
     return rewires(config, env);
   },
   devServer: configFunction => (proxy, allowedHost) => {
-    const config = configFunction(proxy, allowedHost);
-    return config;
+    return configFunction(proxy, allowedHost);
   },
 };
