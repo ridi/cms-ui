@@ -11,6 +11,13 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
+      config => {
+        config.module.rules.unshift({
+          ...config.module.rules[0],
+          include: resolveApp('../lib/src'),
+        });
+        return config;
+      },
       config => rewireBabelLoader.include(
         config,
         resolveApp('../lib'),
