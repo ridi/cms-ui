@@ -1,4 +1,14 @@
 {
   "private": true,
-  "workspaces": ["example", "lib"]
+  "workspaces": [
+    "example",
+    "lib"
+  ],
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build"
+  },
+  "devDependencies": {
+    "react-app-rewire-babel-loader": "^0.1.1"
+  }
 }
