@@ -1,6 +1,6 @@
 const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
-const { initPaths } = require('../config-overrides/utils');
+const { initPaths } = require('../lib/config-overrides/utils');
 
 initPaths(__dirname);
 
