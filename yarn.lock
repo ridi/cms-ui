@@ -1731,6 +1731,12 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-if-not-exist@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/create-if-not-exist/-/create-if-not-exist-0.0.2.tgz#4703f283484fd9b88b6fdd8cdc010dddfff55760"
+  dependencies:
+    file-exists "^0.1.1"
+
 cross-spawn@5.1.0, cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -2773,6 +2779,10 @@ file-entry-cache@^2.0.0:
   dependencies:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
+
+file-exists@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/file-exists/-/file-exists-0.1.1.tgz#993d3fffb5b49d11fefcc8f45c2355027440803c"
 
 file-loader@1.1.5:
   version "1.1.5"

@@ -1,12 +1,18 @@
 const { compose } = require('react-app-rewired');
 const rewireBabelLoader = require('react-app-rewire-babel-loader');
 const path = require('path');
+const mkdirp = require('mkdirp');
+const createIfNotExist = require('create-if-not-exist');
 
-const dirName = 'example';
+const resolveOwn = (...relativePaths) => path.resolve(__dirname, '..', ...relativePaths);
 
-const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
+const libDir = 'lib';
+const libSrcDir = resolveOwn(libDir, 'src');
+const libPath = resolveOwn(libDir, require(resolveOwn(libDir, 'package.json')).main);
+mkdirp.sync(path.dirname(libPath));
+createIfNotExist(libPath, '');
 
-const overrides = require(`../${dirName}/config-overrides`);
+const overrides = require('../example/config-overrides');
 
 module.exports = {
   webpack: (config, env) => {
@@ -15,13 +21,13 @@ module.exports = {
       config => {
         config.module.rules.unshift({
           ...config.module.rules[0],
-          include: resolveOwn('lib/src'),
+          include: libSrcDir,
         });
         return config;
       },
       config => rewireBabelLoader.include(
         config,
-        resolveOwn('lib/src'),
+        libSrcDir,
       ),
     );
     return rewires(config, env);

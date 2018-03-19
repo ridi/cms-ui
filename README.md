@@ -25,5 +25,3 @@ To compile and run example app, please run:
 ```bash
 yarn start
 ```
-> To compile the example app initially,
-> the module file `lib/lib/cms-ui.js` is required even if it's empty file! 

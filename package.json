@@ -9,6 +9,8 @@
     "build": "react-app-rewired build"
   },
   "devDependencies": {
+    "create-if-not-exist": "^0.0.2",
+    "mkdirp": "^0.5.1",
     "react-app-rewire-babel-loader": "^0.1.1"
   }
 }
