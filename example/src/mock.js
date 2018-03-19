@@ -17,41 +17,43 @@ export const getMenuItems = async () => {
 
   let nextId = 1;
   let nextOrder = 0;
-  const items = [];
 
-  for (let i = 1; i <= 3; i += 1) {
-    items.push({
-      id: nextId,
-      menu_title: `Top Level Menu ${i}`,
-      menu_url: `#menu_${i}`,
-      menu_deep: 0,
-      menu_order: nextOrder,
+  function createMenuItem(depth) {
+    const id = nextId;
+    nextId += 1;
+
+    const order = nextOrder;
+    nextOrder += 1;
+
+    return {
+      id,
+      menu_title: `Menu ${id} (Depth: ${depth})`,
+      menu_url: `#menu_${id}`,
+      menu_deep: depth,
+      menu_order: order,
       is_use: true,
       is_show: true,
       is_newtab: false,
       reg_date: moment().format('YYYY-MM-DD hh:mm:ss'),
-    });
-    nextId += 1;
-    nextOrder += 1;
-
-    for (let j = 1; j <= 5; j += 1) {
-      items.push({
-        id: nextId,
-        menu_title: `Sub Menu ${j}`,
-        menu_url: `#menu_${i}_${j}`,
-        menu_deep: 1,
-        menu_order: nextOrder,
-        is_use: true,
-        is_show: true,
-        is_newtab: false,
-        reg_date: moment().format('YYYY-MM-DD hh:mm:ss'),
-      });
-      nextId += 1;
-      nextOrder += 1;
-    }
+    };
   }
 
-  return items;
+  function createHighOrderMenuItems(depth, maxDepth) {
+    if (depth > maxDepth) {
+      return [];
+    }
+
+    const items = [];
+
+    for (let i = 0; i < 3; i += 1) {
+      items.push(createMenuItem(depth));
+      items.push(...createHighOrderMenuItems(depth + 1, maxDepth));
+    }
+
+    return items;
+  }
+
+  return createHighOrderMenuItems(0, 3);
 };
 
 export default mock;
