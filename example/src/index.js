@@ -20,7 +20,12 @@ class App extends React.Component {
 
   render() {
     const { menuItems } = this.state;
-    return <Menu items={menuItems} isLoading={!menuItems} />;
+    if (!menuItems) {
+      return (
+        <div>Loading...</div>
+      );
+    }
+    return <Menu items={menuItems} />;
   }
 }
 
