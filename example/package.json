@@ -6,7 +6,6 @@
     "start": "react-app-rewired start"
   },
   "dependencies": {
-    "@ridi/cms-ui": "*",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
