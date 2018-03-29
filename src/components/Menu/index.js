@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Input } from 'reactstrap';
+import cn from 'classnames';
+import { Card, Input } from 'reactstrap';
 import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
+import styles from './styles.module.css';
 
 export default class Menu extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     items: PropTypes.arrayOf(MenuItem.propTypes.item),
   };
 
   static defaultProps = {
+    className: undefined,
     items: undefined,
   };
 
@@ -55,10 +59,11 @@ export default class Menu extends React.Component {
   }
 
   render() {
-    const { filterString } = this.state;
+    const { className } = this.props;
     const props = _.omit(this.props, _.keys(Menu.propTypes));
+    const { filterString } = this.state;
     return (
-      <div {...props}>
+      <Card className={cn(className, styles.menu)} {...props}>
         <Input
           type="search"
           placeholder="메뉴검색..."
@@ -66,7 +71,7 @@ export default class Menu extends React.Component {
           onChange={e => this.setState({ filterString: e.target.value })}
         />
         {this.renderMenu()}
-      </div>
+      </Card>
     );
   }
 }

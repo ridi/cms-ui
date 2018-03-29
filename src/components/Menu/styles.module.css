@@ -1,0 +1,9 @@
+.menu {
+  display: inline-block;
+  min-width: 16rem;
+  padding: 1rem;
+
+  & :global(.nav-link) {
+    padding: .5rem 0;
+  }
+}

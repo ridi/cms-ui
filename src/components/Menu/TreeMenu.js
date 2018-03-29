@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
-import FA from './FontAwesome';
+import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
 
 export default class TreeMenu extends React.Component {

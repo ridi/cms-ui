@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu } from '../../src';
 import { getMenuItems } from './mock';
+import './styles.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends React.Component {
         <div>Loading...</div>
       );
     }
-    return <Menu items={menuItems} />;
+    return <Menu id="menu" items={menuItems} />;
   }
 }
 
