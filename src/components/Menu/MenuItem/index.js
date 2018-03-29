@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import _ from 'lodash';
 import { NavItem, NavLink } from 'reactstrap';
+import styles from './styles.module.css';
 
 export default class MenuItem extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     item: PropTypes.shape({
       id: PropTypes.number,
       menu_title: PropTypes.node,
@@ -16,6 +20,7 @@ export default class MenuItem extends React.Component {
   };
 
   static defaultProps = {
+    className: undefined,
     item: undefined,
     children: undefined,
     onClickItem: () => {},
@@ -23,15 +28,17 @@ export default class MenuItem extends React.Component {
 
   render() {
     const {
+      className,
       item,
       children,
       onClickItem,
-      ...props
     } = this.props;
+    const props = _.omit(this.props, _.keys(MenuItem.propTypes));
+
     return (
-      <NavItem {...props}>
+      <NavItem className={cn(className, styles.item)} {...props}>
         <NavLink
-          href={item.menu_url}
+          href={_.isEmpty(item.items) ? item.menu_url : undefined}
           target={item.is_newtab ? '_blank' : undefined}
           onClick={() => onClickItem(item)}
         >

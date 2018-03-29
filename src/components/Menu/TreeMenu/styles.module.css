@@ -1,0 +1,11 @@
+.tree-menu {
+  & :global(.nav) {
+    padding-left: .5rem;
+
+    & :global(.nav-link) {
+      &[href] {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

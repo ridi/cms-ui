@@ -3,7 +3,7 @@
   min-width: 16rem;
   padding: 1rem;
 
-  & :global(.nav-link) {
-    padding: .5rem 0;
+  & > *:not(:last-child) {
+    margin-bottom: .5rem;
   }
 }

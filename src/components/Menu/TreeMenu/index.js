@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
-import FA from '../FontAwesome';
-import MenuItem from './MenuItem';
+import FA from '../../FontAwesome';
+import MenuItem from '../MenuItem';
+import styles from './styles.module.css';
 
 export default class TreeMenu extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     items: PropTypes.arrayOf(MenuItem.propTypes.item),
   };
 
   static defaultProps = {
+    className: undefined,
     items: undefined,
   };
 
@@ -112,7 +116,7 @@ export default class TreeMenu extends React.Component {
         onClickItem={this.onClickItem}
       >
         <Collapse isOpen={isOpen}>
-          <Nav className="ml-3" vertical>
+          <Nav vertical>
             {_.map(item.items, this.renderItemTree)}
           </Nav>
         </Collapse>
@@ -121,10 +125,11 @@ export default class TreeMenu extends React.Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { className, items } = this.props;
+    const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
     const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav vertical>
+      <Nav className={cn(className, styles['tree-menu'])} vertical {...props}>
         {_.map(rootItem.items, this.renderItemTree)}
       </Nav>
     );
