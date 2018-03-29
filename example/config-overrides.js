@@ -2,7 +2,7 @@ const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
 const paths = require('react-app-rewired/scripts/utils/paths');
 const { prepareProxy } = require('react-dev-utils/WebpackDevServerUtils');
-const { initPaths } = require('../lib/config-overrides/utils');
+const { initPaths } = require('../config-overrides/utils');
 
 initPaths(__dirname);
 
@@ -16,6 +16,10 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
+      (config) => {
+        config.resolve.plugins = [];
+        return config;
+      },
     );
     return rewires(config, env);
   },

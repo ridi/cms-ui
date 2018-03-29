@@ -1,17 +1,9 @@
 const { compose } = require('react-app-rewired');
 const rewireBabelLoader = require('react-app-rewire-babel-loader');
 const path = require('path');
-const mkdirp = require('mkdirp');
-const createIfNotExist = require('create-if-not-exist');
 
 const resolveOwn = (...relativePaths) => path.resolve(__dirname, '..', ...relativePaths);
-
-const libDir = 'lib';
-const libSrcDir = resolveOwn(libDir, 'src');
-const libPath = resolveOwn(libDir, require(resolveOwn(libDir, 'package.json')).main);
-mkdirp.sync(path.dirname(libPath));
-createIfNotExist(libPath, '');
-
+const libSrcDir = resolveOwn('src');
 const overrides = require('../example/config-overrides');
 
 module.exports = {
