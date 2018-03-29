@@ -15,13 +15,13 @@ module.exports = {
       config => {
         config.module.rules.unshift({
           ...config.module.rules[0],
-          include: resolveOwn('lib/src'),
+          include: resolveOwn('src'),
         });
         return config;
       },
       config => rewireBabelLoader.include(
         config,
-        resolveOwn('lib/src'),
+        resolveOwn('src'),
       ),
     );
     return rewires(config, env);

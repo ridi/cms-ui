@@ -1,6 +1,6 @@
 const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
-const { initPaths } = require('../lib/config-overrides/utils');
+const { initPaths } = require('../config-overrides/utils');
 
 initPaths(__dirname);
 
@@ -8,6 +8,10 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
+      (config) => {
+        config.resolve.plugins = [];
+        return config;
+      },
     );
     return rewires(config, env);
   },
