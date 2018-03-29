@@ -22,6 +22,7 @@ const cssRuleMatcher = (rule) => rule.test && String(rule.test) === String(/\.cs
 
 const createLoaderMatcher = (loader) => (rule) => rule.loader && rule.loader.indexOf(`${path.sep}${loader}${path.sep}`) !== -1;
 const cssLoaderMatcher = createLoaderMatcher('css-loader');
+const postcssLoaderMatcher = createLoaderMatcher('postcss-loader');
 const fileLoaderMatcher = createLoaderMatcher('file-loader');
 
 const addBeforeRule = (rulesSource, ruleMatcher, value) => {
@@ -29,17 +30,33 @@ const addBeforeRule = (rulesSource, ruleMatcher, value) => {
   rules.splice(index, 0, value);
 };
 
-module.exports = function (config, env, override = options => options) {
+module.exports = function (
+  config,
+  env,
+  overrideCssLoaderOptions = options => options,
+  overridePostcssLoaderOptions = options => options,
+) {
   const cssRule = findRule(config.module.rules, cssRuleMatcher);
   const cssModulesRule = cloneDeep(cssRule);
 
   cssRule.exclude = /\.module\.css$/;
 
   const cssModulesRuleCssLoader = findRule(cssModulesRule, cssLoaderMatcher);
-  cssModulesRuleCssLoader.options = override(Object.assign({
+  cssModulesRuleCssLoader.options = overrideCssLoaderOptions({
+    ...cssModulesRuleCssLoader.options,
     modules: true,
     localIdentName: '[local]___[hash:base64:5]',
-  }, cssModulesRuleCssLoader.options));
+  });
+
+  const postcssLoader = findRule(cssModulesRule, postcssLoaderMatcher);
+  postcssLoader.options = overridePostcssLoaderOptions({
+    ...postcssLoader.options,
+    ident: 'postcss',
+    plugins: () => [
+      require('postcss-cssnext')(),
+    ],
+  });
+
   addBeforeRule(config.module.rules, fileLoaderMatcher, cssModulesRule);
 
   return config;

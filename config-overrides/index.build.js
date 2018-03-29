@@ -1,6 +1,6 @@
 const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
-const rewireCssModules = require('./rewires/css-modules');
+const rewireCss = require('./rewires/css');
 const rewireReactLibrary = require('react-app-rewire-react-library');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
@@ -22,7 +22,7 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
-      (config, env) => rewireCssModules(config, env, options => ({
+      (config, env) => rewireCss(config, env, options => ({
         ...options,
         localIdentName: 'cms-ui___[local]___[hash:base64:5]',
       })),
