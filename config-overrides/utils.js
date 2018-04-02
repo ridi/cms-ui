@@ -21,18 +21,23 @@ const initPaths = (appDirectory) => {
 };
 
 const replacePaths = (paths = {}) => {
-  const pathsModulePath = require.resolve(pathsPath);
-  if (!require.cache[pathsModulePath]) {
-    require(pathsPath);
-  }
-  const pathsModule = require.cache[pathsModulePath];
-  return pathsModule.exports = {
-    ...pathsModule.exports,
+  return replaceModule(pathsPath, exports => ({
+    ...exports,
     ...paths,
-  };
+  }));
+};
+
+const replaceModule = (modulePath, override = exports => exports) => {
+  const resolvedModulePath = require.resolve(modulePath);
+  if (!require.cache[resolvedModulePath]) {
+    require(modulePath);
+  }
+  const cachedModule = require.cache[resolvedModulePath];
+  return cachedModule.exports = override(cachedModule.exports);
 };
 
 module.exports = {
   initPaths,
   replacePaths,
+  replaceModule,
 };
