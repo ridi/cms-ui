@@ -96,7 +96,7 @@ export default class TreeMenu extends React.Component {
   renderItemTree(item, key) {
     if (_.isEmpty(item.items)) {
       return (
-        <MenuItem key={key} item={item} />
+        <MenuItem key={key} styles={styles} item={item} />
       );
     }
 
@@ -104,6 +104,7 @@ export default class TreeMenu extends React.Component {
     return (
       <MenuItem
         key={key}
+        styles={styles}
         item={{
           ...item,
           menu_title: (
@@ -129,7 +130,7 @@ export default class TreeMenu extends React.Component {
     const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
     const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav className={cn(className, styles['tree-menu'])} vertical {...props}>
+      <Nav className={cn(className, styles.treeMenu)} vertical {...props}>
         {_.map(rootItem.items, this.renderItemTree)}
       </Nav>
     );

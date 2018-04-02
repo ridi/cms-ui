@@ -1,17 +1,18 @@
 .item {
-  & :global(.nav-link) {
-    cursor: pointer;
-    padding: .25rem .5rem;
-    font-size: .8rem;
+}
 
-    &:not([href]) {
-      font-size: .9rem;
-      font-weight: bold;
-      color: rgba(0, 0, 0, .65);
+.title {
+  cursor: pointer;
+  padding: .25rem .5rem;
+  font-size: .8rem;
 
-      &:hover {
-        color: rgba(0, 0, 0, .85);
-      }
+  &:not([href]) {
+    font-size: .9rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, .65);
+
+    &:hover {
+      color: rgba(0, 0, 0, .85);
     }
   }
 }
