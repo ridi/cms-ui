@@ -1,7 +1,6 @@
 {
   "name": "@ridi/cms-ui",
   "version": "0.1.0",
-  "module": "src/index.js",
   "main": "lib/cms-ui.js",
   "scripts": {
     "start": "react-app-rewired start",

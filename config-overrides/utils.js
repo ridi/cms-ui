@@ -5,7 +5,7 @@ const pathsPath = paths.scriptVersion + '/config/paths';
 
 const initPaths = (appDirectory) => {
   const resolvePath = relativePath => path.resolve(appDirectory, relativePath);
-  replacePaths({
+  return replacePaths({
     dotenv: resolvePath('.env'),
     appPath: resolvePath('.'),
     appBuild: resolvePath('build'),
@@ -26,7 +26,7 @@ const replacePaths = (paths = {}) => {
     require(pathsPath);
   }
   const pathsModule = require.cache[pathsModulePath];
-  pathsModule.exports = {
+  return pathsModule.exports = {
     ...pathsModule.exports,
     ...paths,
   };

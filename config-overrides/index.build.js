@@ -4,15 +4,13 @@ const rewireCss = require('./rewires/css');
 const rewireReactLibrary = require('react-app-rewire-react-library');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-const { initPaths, replacePaths } = require('./utils');
+const { replacePaths } = require('./utils');
 const pkg = require('../package.json');
 
 const appDirectory = path.resolve(__dirname, '..');
-const resolveOwn = relativePath => path.resolve(appDirectory, relativePath);
+const resolveOwn = (...relativePaths) => path.resolve(appDirectory, ...relativePaths);
 
-initPaths(appDirectory);
-
-replacePaths({
+const paths = replacePaths({
   appBuild: resolveOwn('lib'),
   appPublic: resolveOwn('lib'),
   appHtml: resolveOwn(''),
@@ -28,9 +26,8 @@ module.exports = {
       })),
       (config, env) => {
         const options = {
+          module: paths.appIndexJs,
           ...pkg,
-          module: resolveOwn(pkg.module),
-          main: resolveOwn(pkg.main),
         };
         config = rewireReactLibrary(config, env, options, true);
         config.entry = options.module;
