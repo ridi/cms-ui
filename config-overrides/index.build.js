@@ -35,6 +35,7 @@ module.exports = {
         config.plugins = [
           new ExtractTextPlugin({
             filename: `${path.basename(pkg.main, '.js')}.css`,
+            disable: true,
           }),
         ];
         return config;
