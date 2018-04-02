@@ -26,7 +26,7 @@ class App extends React.Component {
         <div>Loading...</div>
       );
     }
-    return <Menu id="menu" items={menuItems} />;
+    return <Menu items={menuItems} />;
   }
 }
 
