@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Nav } from 'reactstrap';
 import MenuItem from './MenuItem';
 
-export default class ListMenu extends React.Component {
+export default class ListMenu extends React.PureComponent {
   static propTypes = {
     items: PropTypes.arrayOf(MenuItem.propTypes.item),
   };

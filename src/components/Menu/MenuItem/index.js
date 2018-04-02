@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { NavItem, NavLink } from 'reactstrap';
 import styles from './styles.module.css';
 
-export default class MenuItem extends React.Component {
+export default class MenuItem extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     item: PropTypes.shape({
