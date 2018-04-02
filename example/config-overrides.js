@@ -19,7 +19,7 @@ module.exports = {
       rewireEslint,
       (config, env) => rewireCss(config, env, options => ({
         ...options,
-        localIdentName: 'cms-ui___[local]___[hash:base64:5]',
+        localIdentName: '[local]___[hash:base64:5]',
       })),
       (config) => {
         config.resolve.plugins = [];
