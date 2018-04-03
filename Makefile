@@ -1,4 +1,4 @@
-.PHONY: install
+.PHONY: install build start
 
 install:
 	yarn install
