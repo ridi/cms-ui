@@ -1,7 +1,11 @@
 {
   "name": "@ridi/cms-ui",
   "version": "0.1.0",
+  "description": "React UI components for Ridibooks CMS SDK",
   "main": "lib/cms-ui.js",
+  "repository": "https://github.com/ridi/cms-ui.git",
+  "author": "Ridibooks Performance Team <performance.team@ridi.com>",
+  "license": "MIT",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
