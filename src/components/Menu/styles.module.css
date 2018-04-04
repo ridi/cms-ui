@@ -1,0 +1,9 @@
+.menu {
+  display: inline-block;
+  min-width: 16rem;
+  padding: 1rem;
+
+  & > *:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+}

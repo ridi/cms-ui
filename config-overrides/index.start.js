@@ -2,11 +2,9 @@ const { compose } = require('react-app-rewired');
 const rewireBabelLoader = require('react-app-rewire-babel-loader');
 const path = require('path');
 
-const dirName = 'example';
-
-const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
-
-const overrides = require(`../${dirName}/config-overrides`);
+const resolveOwn = (...relativePaths) => path.resolve(__dirname, '..', ...relativePaths);
+const libSrcDir = resolveOwn('src');
+const overrides = require('../example/config-overrides');
 
 module.exports = {
   webpack: (config, env) => {
@@ -15,13 +13,13 @@ module.exports = {
       config => {
         config.module.rules.unshift({
           ...config.module.rules[0],
-          include: resolveOwn('src'),
+          include: libSrcDir,
         });
         return config;
       },
       config => rewireBabelLoader.include(
         config,
-        resolveOwn('src'),
+        libSrcDir,
       ),
     );
     return rewires(config, env);

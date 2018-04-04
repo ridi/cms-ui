@@ -1,8 +1,36 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu } from '../../src';
+import { getMenuItems } from './mock';
+import './styles.css';
 
-ReactDOM.render(<Menu />, document.getElementById('root'));
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.loadMenuItems();
+  }
+
+  async loadMenuItems() {
+    this.setState({ menuItems: await getMenuItems() });
+  }
+
+  render() {
+    const { menuItems } = this.state;
+    if (!menuItems) {
+      return (
+        <div>Loading...</div>
+      );
+    }
+    return <Menu items={menuItems} />;
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept();
