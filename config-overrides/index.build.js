@@ -20,10 +20,16 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
-      (config, env) => rewireCss(config, env, options => ({
-        ...options,
-        localIdentName: '[local]___[hash:base64:5]',
-      })),
+      (config, env) => rewireCss(config, env,
+        cssLoaderOptions => ({
+          ...cssLoaderOptions,
+          sourceMap: false,
+        }),
+        postcssLoaderOptions => ({
+          ...postcssLoaderOptions,
+          sourceMap: false,
+        }),
+      ),
       (config, env) => {
         const options = {
           module: paths.appIndexJs,
