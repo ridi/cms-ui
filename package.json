@@ -2,14 +2,14 @@
   "name": "@ridi/cms-ui",
   "version": "0.1.0",
   "description": "React UI components for Ridibooks CMS SDK",
-  "main": "lib/cms-ui.js",
+  "main": "dist/cms-ui.commonjs2.js",
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
   "scripts": {
     "start": "cd example && yarn start",
     "watch": "webpack --watch",
-    "build": "webpack",
+    "build": "webpack --config=config/webpack.prod.js",
     "prepack": "yarn build"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "npm-run-all": "^4.1.2",
+    "parallel-webpack": "^2.3.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-flexbugs-fixes": "^3.3.0",
     "postcss-import": "^11.1.0",
