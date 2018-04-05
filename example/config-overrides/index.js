@@ -1,11 +1,15 @@
+const path = require('path');
 const { compose } = require('react-app-rewired');
 const rewireEslint = require('react-app-rewire-eslint');
-const rewireCss = require('../config-overrides/rewires/css');
+const rewireCss = require('./rewires/css');
+const rewireBabelLoader = require('react-app-rewire-babel-loader');
 const paths = require('react-app-rewired/scripts/utils/paths');
 const { prepareProxy } = require('react-dev-utils/WebpackDevServerUtils');
-const { initPaths } = require('../config-overrides/utils');
+const { initPaths } = require('./utils');
 
-initPaths(__dirname);
+initPaths(path.resolve(__dirname, '..'));
+
+const LIB_SRC_PATH = path.resolve(__dirname, '../../src');
 
 const CMS_RPC_PATH = '/cms_rpc';
 const CMS_RPC_URL = process.env.CMS_RPC_URL;
@@ -17,10 +21,27 @@ module.exports = {
   webpack: (config, env) => {
     const rewires = compose(
       rewireEslint,
-      (config, env) => rewireCss(config, env, options => ({
-        ...options,
-        localIdentName: '[local]___[hash:base64:5]',
-      })),
+      (config, env) => rewireCss(config, env,
+        cssLoaderOptions => ({
+          ...cssLoaderOptions,
+          sourceMap: true,
+        }),
+        postcssLoaderOptions => ({
+          ...postcssLoaderOptions,
+          sourceMap: true,
+        }),
+      ),
+      config => {
+        config.module.rules.unshift({
+          ...config.module.rules[0],
+          include: LIB_SRC_PATH,
+        });
+        return config;
+      },
+      config => rewireBabelLoader.include(
+        config,
+        LIB_SRC_PATH,
+      ),
       (config) => {
         config.resolve.plugins = [];
         return config;
