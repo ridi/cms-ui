@@ -71,7 +71,7 @@ export default class Menu extends React.Component {
         </ButtonGroup>
 
         <Input
-          size="sm"
+          bsSize="sm"
           type="search"
           placeholder="메뉴검색..."
           value={filterString}
