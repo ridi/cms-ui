@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import cn from 'classnames';
-import { Card, Input } from 'reactstrap';
+import { Button, ButtonGroup, Card, Input } from 'reactstrap';
+import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
@@ -64,12 +65,19 @@ export default class Menu extends React.Component {
     const { filterString } = this.state;
     return (
       <Card className={cn(className, styles.menu)} {...props}>
+        <ButtonGroup className={styles.buttonGroup} size="sm">
+          <Button tag="a" href="/me" color="link"><FA icon="user-circle" /> 개인정보 수정</Button>
+          <Button tag="a" href="/logout" color="link"><FA icon="sign-out-alt" /> 로그아웃</Button>
+        </ButtonGroup>
+
         <Input
+          size="sm"
           type="search"
           placeholder="메뉴검색..."
           value={filterString}
           onChange={e => this.setState({ filterString: e.target.value })}
         />
+
         {this.renderMenu()}
       </Card>
     );
