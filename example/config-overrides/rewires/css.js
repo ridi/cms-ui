@@ -53,6 +53,7 @@ module.exports = function (
     ...postcssLoader.options,
     ident: 'postcss',
     plugins: () => [
+      require('postcss-import')(),
       require('postcss-cssnext')(),
     ],
   });

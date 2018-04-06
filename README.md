@@ -11,7 +11,7 @@ npm install --save @ridi/cms-ui
 ### Add Stylesheets
 *cms-ui* uses *Bootstrap 4* but  CSS is not included. so it is required to add them.
 
-Install *Bootstrap* and import CSS in `js` entry:
+Install *Bootstrap* and import CSS in `js`:
 ```
 # bash
 npm install --save bootstrap
@@ -27,18 +27,44 @@ Insert `<link>` into HTML's `<head>` before all other stylesheets:
 ```
 
 ### Usage
+
+#### React
 ```js
 import { Menu } from '@ridi/cms-ui';
 
-const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API
+const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API.
 
 const Example = (props) => {
-	return (
-		<div>
-			<Menu items={menuItems} />
-		</div>
-	);
+  return (
+    <div>
+      <Menu items={menuItems} />
+    </div>
+  );
 };
+```
+
+#### Browser
+```html
+<html>
+  <head>
+    <!-- Load library in <head> to avoid flickering. -->
+    <script type="text/javascript" src="path/to/cms-ui/dist/cms-ui.var.js"></script>
+  </head>
+  <body>
+    <div id="menu"></div>
+
+    <script>
+      const { createElement, render, Menu } = CmsUi;
+
+      const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API.
+
+      const menuElement = createElement(Menu, { items: menuItems });
+      const menuContainer = document.getElementById('menu');
+
+      render(menuElement, menuContainer); // Be sure to container DOM element is loaded before call this.
+    </script>
+  </body>
+</html>
 ```
 
 ## Development
