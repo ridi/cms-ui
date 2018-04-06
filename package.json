@@ -1,16 +1,16 @@
 {
   "name": "@ridi/cms-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React UI components for Ridibooks CMS SDK",
   "main": "dist/cms-ui.umd.js",
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cd example && yarn start",
+    "start": "cd example && npm start",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
     "build": "parallel-webpack --config=config/webpack.prod.js",
-    "prepack": "yarn build"
+    "prepack": "npm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
