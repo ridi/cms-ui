@@ -1,24 +1,33 @@
 const path = require('path');
 const pkg = require('../package.json');
 
-const styleLoaderOptions = {};
-
-const cssLoaderOptions = {
-  minimize: true,
-};
-
-const postcssLoaderOptions = {
-  ident: 'postcss',
-  plugins: () => [
-    require('postcss-import')(),
-    require('postcss-cssnext')(),
-  ],
-};
-
 module.exports = (options) => {
   const SRC_PATH = path.resolve(__dirname, '../src');
   const OUTPUT_PATH = path.resolve(__dirname, '../dist');
   const OUTPUT_FILENAME = `cms-ui.${options.target}.js`;
+
+  const isProduction = options.mode === 'production';
+
+  const sourceMap = !isProduction;
+
+  const styleLoaderOptions = {
+    sourceMap,
+    hmr: !isProduction,
+  };
+
+  const cssLoaderOptions = {
+    sourceMap,
+    minimize: isProduction,
+  };
+
+  const postcssLoaderOptions = {
+    sourceMap,
+    ident: 'postcss',
+    plugins: () => [
+      require('postcss-import')(),
+      require('postcss-cssnext')(),
+    ],
+  };
 
   const externals = (() => {
     switch (options.target) {
@@ -35,8 +44,8 @@ module.exports = (options) => {
   })();
 
   return {
-    mode: process.env.NODE_ENV,
-    devtool: 'source-map',
+    mode: options.mode,
+    devtool: options.devtool,
     entry: SRC_PATH,
     output: {
       library: 'CmsUi',
