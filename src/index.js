@@ -1,5 +1,7 @@
-import * as Components from '.';
+import * as modules from '.';
 
 export { default as Menu } from './components/Menu';
 
-export default Components;
+export * from './utils';
+
+export default modules;
