@@ -1,11 +1,14 @@
-.PHONY: install build start
+.PHONY: install start build publish
 
 install:
-	yarn install
-	cd example && yarn install
-
-build:
-	yarn build
+	npm install
+	cd example && npm install
 
 start:
-	yarn start
+	npm start
+
+build:
+	npm run build
+
+publish:
+	npm publish --access public
