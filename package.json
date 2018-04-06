@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "cd example && yarn start",
-    "watch": "webpack --config=config/webpack.dev.js --watch",
-    "build": "webpack --config=config/webpack.prod.js",
+    "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
+    "build": "parallel-webpack --config=config/webpack.prod.js",
     "prepack": "yarn build"
   },
   "dependencies": {
