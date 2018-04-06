@@ -4,5 +4,5 @@ const createWebpackConfig = require('./createWebpackConfig');
 process.env.NODE_ENV = 'production';
 
 module.exports = createVariants({
-  target: ['commonjs2'],
+  target: ['var', 'umd'],
 }, createWebpackConfig);

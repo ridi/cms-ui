@@ -2,7 +2,7 @@
   "name": "@ridi/cms-ui",
   "version": "0.1.0",
   "description": "React UI components for Ridibooks CMS SDK",
-  "main": "dist/cms-ui.commonjs2.js",
+  "main": "dist/cms-ui.umd.js",
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
