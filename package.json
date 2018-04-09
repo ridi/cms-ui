@@ -6,6 +6,9 @@
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "cd example && npm start",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
