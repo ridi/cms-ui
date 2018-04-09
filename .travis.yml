@@ -1,3 +1,12 @@
 language: node_js
-node_js: "8"
+node_js: '8'
 script: npm run build
+deploy:
+  provider: npm
+  email: performance.team@ridi.com
+  api_key:
+    secure: cPqGgnn45aEZGndXfjhqvKSAIaHIMwLteT7NL0z0mkh0cyS0Lj70OU7+sUJ42my8hiCXVL74Q229qzSmNYMtOZpsrxqALEfvhEdLfvWCIuphKesCweFCTZ5CNqfsupn3k9JCPby+hDBZrqDJfe0dXXskKpLpb7J2rsz+WGdwmlIHZCPBSQTbv7u0ynadIEk0psO5FLKQ3UNWjdHFdH5AELhu4KX9cgKtGkRToe09Vj2dsLxCPkvn5RgSx8OVS2O6Q2QOiT2bnr/2YQ75JnAMtmu1iCFe33N3fNkEs6bJW6awa5CNCiVaEgTZzTJ29nTRe8VS4osLxFHabcxQI6h1Px4i/U2Q+uenEfE9ndP5KLdNVYXmBC2jjdM5xFHyco9wPDxRhUevjk7FnBy56IGI7KGMn3/CoHbTHF5Oqroj9YNf4XC3+5dVRja5kAu31ILXfTFMxKPawsD3o5RgYltxDCOzPfDLU62sVERz1qyLSHYRsZoAb9u2hs41cp7c+12yJOrpALNjk+sFIJz7638z/o33UiOfj0gC4rU47MEM4Aj2vvUlhKD3/iM+OpjxfpA5T+XT5EQnc5eUPRrg3Xyu5Si7J+/CmMQrqc9eJxw7y15GIG/IuCW49XEFhu6HULY0aBjdOB2LmuJ9ScaR3wDIgXZDZOiCUp71yofPCQH57sE=
+  on:
+    tags: true
+    repo: ridi/cms-ui
+    branch: master
