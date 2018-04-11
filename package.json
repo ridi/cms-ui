@@ -7,6 +7,9 @@
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
   "scripts": {
+    "prestart": "npm run build:dev",
+    "start": "run-p watch start:example",
+    "start:example": "cd example && npm start",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
     "build:dev": "parallel-webpack --config=config/webpack.dev.js",
     "build:prod": "parallel-webpack --config=config/webpack.prod.js",
@@ -33,6 +36,7 @@
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
+    "npm-run-all": "^4.1.2",
     "parallel-webpack": "^2.3.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-flexbugs-fixes": "^3.3.0",

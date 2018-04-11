@@ -7,8 +7,7 @@ install:
 	cd example && npm install
 
 start:
-	npm run build:dev
-	npm run watch & (cd example && npm start)
+	npm start
 
 build:
 	npm run build:prod
