@@ -1,7 +1,7 @@
 const createVariants = require('parallel-webpack').createVariants;
 const createWebpackConfig = require('./createWebpackConfig');
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const baseOptions = {
   mode: process.env.NODE_ENV,

@@ -1,6 +1,6 @@
 language: node_js
 node_js: '8'
-script: npm run build
+script: make build
 deploy:
   provider: npm
   email: performance.team@ridi.com
@@ -10,3 +10,4 @@ deploy:
     tags: true
     repo: ridi/cms-ui
     branch: master
+  script: make deploy

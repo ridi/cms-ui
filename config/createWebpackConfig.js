@@ -116,5 +116,6 @@ module.exports = (options) => {
     performance: {
       hints: false,
     },
+    stats: isProduction ? 'normal' : 'minimal',
   };
 };

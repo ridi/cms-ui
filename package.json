@@ -6,13 +6,10 @@
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "start": "cd example && npm start",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
-    "build": "parallel-webpack --config=config/webpack.prod.js",
+    "build:dev": "parallel-webpack --config=config/webpack.dev.js",
+    "build:prod": "parallel-webpack --config=config/webpack.prod.js",
     "prepack": "npm run build"
   },
   "dependencies": {
@@ -24,7 +21,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "reactstrap": "^5.0.0-beta.2"
+    "reactstrap": "^5.0.0"
   },
   "devDependencies": {
     "@ridi/eslint-config": "^4.0.0",
@@ -35,7 +32,6 @@
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
-    "npm-run-all": "^4.1.2",
     "parallel-webpack": "^2.3.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-flexbugs-fixes": "^3.3.0",
