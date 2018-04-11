@@ -1,4 +1,4 @@
-.PHONY: install start link unlink build publish
+.PHONY: install start build publish link unlink clean
 
 all: install build
 
@@ -7,9 +7,14 @@ install:
 	cd example && npm install
 
 start:
-	make link
 	npm run build:dev
 	npm run watch & (cd example && npm start)
+
+build:
+	npm run build:prod
+
+publish:
+	npm publish --access public
 
 link:
 	npm link
@@ -19,12 +24,6 @@ unlink:
 	npm unlink
 	cd example && rm -rf node_modules/@ridi/cms-ui
 	cd example && npm install
-
-build:
-	npm run build:prod
-
-publish:
-	npm publish --access public
 
 clean:
 	npm unlink

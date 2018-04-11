@@ -61,8 +61,9 @@ make install
 ```
 
 ### Run Example App
-To compile and run example app, please run:
+To compile and run example app with local *cms-ui*, please run:
 ```bash
+make link
 make start
 ```
 
