@@ -1,8 +1,8 @@
 import { Util } from 'reactstrap';
-import bootstrapCssModule from './bootstrap.module.css';
+import cssModule from './styles/index.module.css';
 import * as modules from '.';
 
-Util.setGlobalCssModule(bootstrapCssModule);
+Util.setGlobalCssModule(cssModule);
 
 export { default as Menu } from './components/Menu';
 

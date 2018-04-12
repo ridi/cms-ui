@@ -12,6 +12,7 @@ module.exports = (options) => {
 
   const styleLoaderOptions = {
     sourceMap,
+    insertAt: 'top',
     hmr: !isProduction,
   };
 
@@ -26,7 +27,12 @@ module.exports = (options) => {
     plugins: () => [
       require('postcss-import')(),
       require('postcss-cssnext')(),
+      require('cssnano')(),
     ],
+  };
+
+  const sassLoaderOptions = {
+    sourceMap,
   };
 
   const externals = (() => {
@@ -72,7 +78,7 @@ module.exports = (options) => {
           loader: 'babel-loader',
         },
         {
-          test: /\.css$/,
+          test: /\.(css|s[ac]ss)$/,
           exclude: /\.module\.css$/,
           use: [
             {
@@ -87,10 +93,14 @@ module.exports = (options) => {
               loader: 'postcss-loader',
               options: postcssLoaderOptions,
             },
+            {
+              loader: 'sass-loader',
+              options: sassLoaderOptions,
+            },
           ],
         },
         {
-          test: /\.module\.css$/,
+          test: /\.module\.(css|s[ac]ss)$/,
           use: [
             {
               loader: 'style-loader',
@@ -100,7 +110,7 @@ module.exports = (options) => {
               loader: 'css-loader',
               options: {
                 ...cssLoaderOptions,
-                importLoaders: 1,
+                importLoaders: 2,
                 modules: true,
                 localIdentName: '[local]___[hash:base64:5]',
               },
@@ -108,6 +118,10 @@ module.exports = (options) => {
             {
               loader: 'postcss-loader',
               options: postcssLoaderOptions,
+            },
+            {
+              loader: 'sass-loader',
+              options: sassLoaderOptions,
             },
           ],
         },

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import cn from 'classnames';
@@ -7,6 +8,7 @@ import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
+import cssModule from '../../styles/index.module.css';
 import styles from './styles.module.css';
 
 export default class Menu extends React.Component {
@@ -43,6 +45,10 @@ export default class Menu extends React.Component {
     };
   }
 
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).parentNode.classList.add(cssModule.cmsUi);
+  }
+
   renderMenu() {
     const { items } = this.props;
     const { filterString } = this.state;
@@ -63,6 +69,7 @@ export default class Menu extends React.Component {
     const { className } = this.props;
     const props = _.omit(this.props, _.keys(Menu.propTypes));
     const { filterString } = this.state;
+
     return (
       <Card className={cn(className, styles.menu)} {...props}>
         <ButtonGroup className={styles.buttonGroup} size="sm">
