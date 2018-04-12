@@ -1,1 +1,3 @@
-@import "bootstrap.scss";
+.cmsUi {
+  @import "bootstrap.scss";
+}
