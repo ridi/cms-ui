@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import _ from 'lodash';
 import { NavItem, NavLink } from 'reactstrap';
-import localStyles from './styles.module.css';
+import localStyles from './index.module.css';
 
 export default class MenuItem extends React.PureComponent {
   static propTypes = {

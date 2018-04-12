@@ -2,7 +2,7 @@
 }
 
 .item {
-  composes: item from "../MenuItem/styles.module.css";
+  composes: item from "../MenuItem/index.module.css";
   margin-left: .5rem;
   @nest .treeMenu > & {
     margin-left: 0;
@@ -10,7 +10,7 @@
 }
 
 .title {
-  composes: title from "../MenuItem/styles.module.css";
+  composes: title from "../MenuItem/index.module.css";
 
   &[href] {
     margin-left: 1rem;

@@ -9,7 +9,7 @@ import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
 import cssModule from '../../styles/index.module.css';
-import styles from './styles.module.css';
+import styles from './index.module.css';
 
 export default class Menu extends React.Component {
   static propTypes = {

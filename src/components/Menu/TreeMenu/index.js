@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
-import styles from './styles.module.css';
+import styles from './index.module.css';
 
 export default class TreeMenu extends React.Component {
   static propTypes = {
