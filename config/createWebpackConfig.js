@@ -79,7 +79,7 @@ module.exports = (options) => {
         },
         {
           test: /\.(css|s[ac]ss)$/,
-          exclude: /\.module\.css$/,
+          exclude: /\.module\.(css|s[ac]ss)$/,
           use: [
             {
               loader: 'style-loader',
