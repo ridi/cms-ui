@@ -10,7 +10,7 @@ start:
 	npm start
 
 build:
-	npm run build:prod
+	npm run build
 
 publish:
 	npm publish --access public

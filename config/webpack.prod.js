@@ -9,7 +9,7 @@ const baseOptions = {
 };
 
 const variants = {
-  target: ['var', 'umd'],
+  target: _.split(process.env.TARGET || 'var,umd', ','),
 };
 
 module.exports = createVariants(baseOptions, variants, createWebpackConfig);

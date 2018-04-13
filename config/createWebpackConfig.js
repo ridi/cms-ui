@@ -127,6 +127,9 @@ module.exports = (options) => {
         },
       ],
     },
+    plugins: [
+      ...(options.plugins || []),
+    ],
     performance: {
       hints: false,
     },
