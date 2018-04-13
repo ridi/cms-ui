@@ -10,4 +10,4 @@ deploy:
     tags: true
     repo: ridi/cms-ui
     branch: master
-  script: make deploy
+  script: make publish
