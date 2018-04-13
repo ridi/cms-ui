@@ -70,7 +70,7 @@ export default class Menu extends React.Component {
 
     return (
       <Card className={cm(className, 'menu')} {...props}>
-        <ButtonGroup className={cm('buttonGroup')} size="sm">
+        <ButtonGroup className={cm('button_group')} size="sm">
           <Button tag="a" href="/me" color="link"><FA icon="user-circle" /> 개인정보 수정</Button>
           <Button tag="a" href="/logout" color="link"><FA icon="sign-out-alt" /> 로그아웃</Button>
         </ButtonGroup>

@@ -128,7 +128,7 @@ export default class TreeMenu extends React.Component {
     const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
     const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav className={cm(className, 'treeMenu')} vertical {...props}>
+      <Nav className={cm(className, 'tree_menu')} vertical {...props}>
         {_.map(rootItem.items, this.renderItemTree)}
       </Nav>
     );
