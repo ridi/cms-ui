@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import _ from 'lodash';
-import { Collapse, Nav, Util } from 'reactstrap';
+import { Collapse, Nav } from 'reactstrap';
+import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
@@ -128,7 +128,7 @@ export default class TreeMenu extends React.Component {
     const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
     const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav className={Util.mapToCssModules(cn(className, 'treeMenu'))} vertical {...props}>
+      <Nav className={cm(className, 'treeMenu')} vertical {...props}>
         {_.map(rootItem.items, this.renderItemTree)}
       </Nav>
     );

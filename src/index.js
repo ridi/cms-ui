@@ -1,8 +1,8 @@
-import { Util } from 'reactstrap';
+import { setGlobalCssModule } from './utils/css';
 import cssModule from './styles/index.module.scss';
 
-Util.setGlobalCssModule(cssModule);
+setGlobalCssModule(cssModule, 'cmsUi');
 
-export * from './utils';
+export * from './utils/render';
 
 export { default as Menu } from './components/Menu';

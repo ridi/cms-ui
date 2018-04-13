@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import cn from 'classnames';
-import { Button, ButtonGroup, Card, Input, Util } from 'reactstrap';
+import { Button, ButtonGroup, Card, Input } from 'reactstrap';
+import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
 import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
-import cssModule from '../../styles/index.module.scss';
 
 export default class Menu extends React.Component {
   static propTypes = {
@@ -45,7 +44,7 @@ export default class Menu extends React.Component {
   }
 
   componentDidMount() {
-    ReactDOM.findDOMNode(this).parentNode.classList.add(cssModule.cmsUi);
+    modularizeRootNode(ReactDOM.findDOMNode(this).parentNode);
   }
 
   renderMenu() {
@@ -70,8 +69,8 @@ export default class Menu extends React.Component {
     const { filterString } = this.state;
 
     return (
-      <Card className={Util.mapToCssModules(cn(className, 'menu'))} {...props}>
-        <ButtonGroup className={Util.mapToCssModules('buttonGroup')} size="sm">
+      <Card className={cm(className, 'menu')} {...props}>
+        <ButtonGroup className={cm('buttonGroup')} size="sm">
           <Button tag="a" href="/me" color="link"><FA icon="user-circle" /> 개인정보 수정</Button>
           <Button tag="a" href="/logout" color="link"><FA icon="sign-out-alt" /> 로그아웃</Button>
         </ButtonGroup>
