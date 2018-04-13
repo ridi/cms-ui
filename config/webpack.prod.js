@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const createVariants = require('parallel-webpack').createVariants;
 const createWebpackConfig = require('./createWebpackConfig');
 
