@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import _ from 'lodash';
-import { Collapse, Nav } from 'reactstrap';
+import { Collapse, Nav, Util } from 'reactstrap';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
-import styles from './index.module.css';
 
 export default class TreeMenu extends React.Component {
   static propTypes = {
@@ -96,7 +95,7 @@ export default class TreeMenu extends React.Component {
   renderItemTree(item, key) {
     if (_.isEmpty(item.items)) {
       return (
-        <MenuItem key={key} styles={styles} item={item} />
+        <MenuItem key={key} item={item} />
       );
     }
 
@@ -104,7 +103,6 @@ export default class TreeMenu extends React.Component {
     return (
       <MenuItem
         key={key}
-        styles={styles}
         item={{
           ...item,
           menu_title: (
@@ -130,7 +128,7 @@ export default class TreeMenu extends React.Component {
     const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
     const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav className={cn(className, styles.treeMenu)} vertical {...props}>
+      <Nav className={Util.mapToCssModules(cn(className, 'treeMenu'))} vertical {...props}>
         {_.map(rootItem.items, this.renderItemTree)}
       </Nav>
     );

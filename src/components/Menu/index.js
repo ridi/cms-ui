@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import cn from 'classnames';
-import { Button, ButtonGroup, Card, Input } from 'reactstrap';
+import { Button, ButtonGroup, Card, Input, Util } from 'reactstrap';
 import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
-import cssModule from '../../styles/index.module.css';
-import styles from './index.module.css';
+import cssModule from '../../styles/index.module.scss';
 
 export default class Menu extends React.Component {
   static propTypes = {
@@ -71,8 +70,8 @@ export default class Menu extends React.Component {
     const { filterString } = this.state;
 
     return (
-      <Card className={cn(className, styles.menu)} {...props}>
-        <ButtonGroup className={styles.buttonGroup} size="sm">
+      <Card className={Util.mapToCssModules(cn(className, 'menu'))} {...props}>
+        <ButtonGroup className={Util.mapToCssModules('buttonGroup')} size="sm">
           <Button tag="a" href="/me" color="link"><FA icon="user-circle" /> 개인정보 수정</Button>
           <Button tag="a" href="/logout" color="link"><FA icon="sign-out-alt" /> 로그아웃</Button>
         </ButtonGroup>

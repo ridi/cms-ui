@@ -25,7 +25,7 @@ module.exports = (options) => {
     sourceMap,
     ident: 'postcss',
     plugins: () => [
-      require('postcss-import')(),
+      require('postcss-easy-import')(),
       require('postcss-cssnext')(),
       require('cssnano')(),
     ],

@@ -1,0 +1,18 @@
+@import "../MenuItem/index";
+
+.treeMenu {
+  & .item {
+    margin-left: .5rem;
+  }
+
+  & > .item {
+    margin-left: 0;
+  }
+
+  & .title {
+    &[href] {
+      margin-left: 1rem;
+    }
+  }
+}
+
