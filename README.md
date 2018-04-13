@@ -36,7 +36,7 @@ const Example = (props) => {
     <script src="path/to/cms-ui/dist/cms-ui.var.js"></script>
   </head>
   <body>
-    <div id="menu"></div>
+    <div id="menu_container"></div>
 
     <script>
       const { createElement, render, Menu } = CmsUi;
@@ -44,9 +44,9 @@ const Example = (props) => {
       const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API.
 
       const menuElement = createElement(Menu, { items: menuItems });
-      const menuContainer = document.getElementById('menu');
+      const menuContainer = document.getElementById('menu_container');
 
-      render(menuElement, menuContainer); // Be sure to container DOM element is loaded before call this.
+      render(menuElement, menuContainer); // Make sure to container DOM element is loaded before call render function.
     </script>
   </body>
 </html>
