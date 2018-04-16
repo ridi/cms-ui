@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Menu } from '../../src';
+import { Menu } from '@ridi/cms-ui';
 import { getMenuItems } from './mock';
 import './styles.css';
 

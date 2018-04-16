@@ -1,3 +1,5 @@
+@import "./TreeMenu/index";
+
 .menu {
   display: inline-block;
   min-width: 16rem;
@@ -6,9 +8,9 @@
   & > *:not(:last-child) {
     margin-bottom: .5rem;
   }
-}
 
-.buttonGroup {
-  display: flex;
-  justify-content: center;
+  & .button_group {
+    display: flex;
+    justify-content: center;
+  }
 }
