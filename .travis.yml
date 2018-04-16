@@ -10,4 +10,5 @@ deploy:
     tags: true
     repo: ridi/cms-ui
     branch: master
+  skip_cleanup: true
   script: make publish

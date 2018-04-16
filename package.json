@@ -9,8 +9,7 @@
   "scripts": {
     "start": "parallel-webpack --config=config/webpack.start.js --watch",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
-    "build": "parallel-webpack --config=config/webpack.prod.js",
-    "prepack": "npm run build"
+    "build": "parallel-webpack --config=config/webpack.prod.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
