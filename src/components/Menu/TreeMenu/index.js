@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
+import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
+import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
@@ -107,7 +109,7 @@ export default class TreeMenu extends React.Component {
           ...item,
           menu_title: (
             <React.Fragment>
-              <FA icon={isOpen ? 'caret-down' : 'caret-right'} />
+              <FA icon={isOpen ? faCaretDown : faCaretRight} />
               {item.menu_title}
             </React.Fragment>
           ),
