@@ -21,25 +21,26 @@ export default class TreeMenu extends React.Component {
   };
 
   static buildItemTree(items) {
-    const root = { id: 0, menu_deep: -1, items: [] };
+    const root = { id: 0, depth: -1, children: [] };
     const parents = [root];
 
     _.forEach(items, (item, index) => {
       const parent = (() => {
-        while (_.last(parents).menu_deep >= item.menu_deep) {
+        while (_.last(parents).depth >= item.depth) {
           parents.pop();
         }
         return _.last(parents);
       })();
 
-      const itemWithChildren = { ...item, items: [] };
-      parent.items.push(itemWithChildren);
+      const itemWithChildren = { ...item, children: [] };
+      parent.children.push(itemWithChildren);
 
       if (item === _.last(items)) {
         return;
       }
 
-      if (items[index + 1].menu_deep > item.menu_deep) {
+      if (items[index + 1].depth > item.depth) {
+        delete itemWithChildren.href;
         parents.push(itemWithChildren);
       }
     });
@@ -96,7 +97,7 @@ export default class TreeMenu extends React.Component {
   }
 
   renderItemTree(item, key) {
-    if (_.isEmpty(item.items)) {
+    if (_.isEmpty(item.children)) {
       return (
         <MenuItem key={key} item={item} />
       );
@@ -108,10 +109,10 @@ export default class TreeMenu extends React.Component {
         key={key}
         item={{
           ...item,
-          menu_title: (
+          content: (
             <React.Fragment>
               <FA icon={isOpen ? faCaretDown : faCaretRight} />
-              {item.menu_title}
+              {item.content}
             </React.Fragment>
           ),
         }}
@@ -119,7 +120,7 @@ export default class TreeMenu extends React.Component {
       >
         <Collapse isOpen={isOpen}>
           <Nav vertical>
-            {_.map(item.items, this.renderItemTree)}
+            {_.map(item.children, this.renderItemTree)}
           </Nav>
         </Collapse>
       </MenuItem>
@@ -135,7 +136,7 @@ export default class TreeMenu extends React.Component {
         vertical
         {...getRestProps(this)}
       >
-        {_.map(rootItem.items, this.renderItemTree)}
+        {_.map(rootItem.children, this.renderItemTree)}
       </Nav>
     );
   }

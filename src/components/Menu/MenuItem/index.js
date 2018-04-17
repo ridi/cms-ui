@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import { NavItem, NavLink } from 'reactstrap';
 import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
@@ -10,10 +9,10 @@ export default class MenuItem extends React.PureComponent {
     className: PropTypes.string,
     item: PropTypes.shape({
       id: PropTypes.number,
-      menu_title: PropTypes.node,
-      menu_url: PropTypes.string,
-      menu_deep: PropTypes.number,
-      is_newtab: PropTypes.bool,
+      content: PropTypes.node,
+      href: PropTypes.string,
+      target: PropTypes.string,
+      depth: PropTypes.number,
     }),
     children: PropTypes.node,
     onClickItem: PropTypes.func,
@@ -38,11 +37,11 @@ export default class MenuItem extends React.PureComponent {
       <NavItem className={cm(className, 'item')} {...getRestProps(this)}>
         <NavLink
           className={cm('title')}
-          href={_.isEmpty(item.items) ? item.menu_url : undefined}
-          target={item.is_newtab ? '_blank' : undefined}
+          href={item.href}
+          target={item.target}
           onClick={() => onClickItem(item)}
         >
-          {item.menu_title}
+          {item.content}
         </NavLink>
         {children}
       </NavItem>

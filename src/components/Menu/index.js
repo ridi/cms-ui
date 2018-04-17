@@ -8,14 +8,27 @@ import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import { getRestProps } from '../../utils/component';
 import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
 import FA from '../FontAwesome';
-import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
+
+const mapData = data => ({
+  id: data.id,
+  content: data.menu_title,
+  href: data.menu_url,
+  target: data.is_newtab ? '_blank' : undefined,
+  depth: data.menu_deep,
+});
 
 export default class Menu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    items: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      menu_title: PropTypes.node,
+      menu_url: PropTypes.string,
+      menu_deep: PropTypes.number,
+      is_newtab: PropTypes.bool,
+    })),
   };
 
   static defaultProps = {
@@ -26,15 +39,15 @@ export default class Menu extends React.Component {
   static filterItems(items, filterString) {
     const keywords = _.filter(_.split(filterString, ' '), _.identity);
 
-    if (!_.size(keywords)) {
+    if (_.isEmpty(keywords)) {
       return items;
     }
 
     return _.filter(items, item => (
       _.every(keywords, (value) => {
-        const title = _.toLower(item.menu_title);
+        const content = _.toLower(item.content);
         const keyword = _.toLower(value);
-        return _.includes(title, keyword);
+        return _.includes(content, keyword);
       })
     ));
   }
@@ -51,7 +64,7 @@ export default class Menu extends React.Component {
   }
 
   renderMenu() {
-    const { items } = this.props;
+    const items = _.map(this.props.items, mapData);
     const { filterString } = this.state;
 
     if (!filterString) {
