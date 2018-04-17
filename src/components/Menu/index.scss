@@ -1,6 +1,5 @@
-@import "./TreeMenu/index";
-
 .menu {
+  @import "./TreeMenu/index";
   display: inline-block;
   min-width: 16rem;
   padding: 1rem;
