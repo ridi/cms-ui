@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { Button, ButtonGroup, Card, Input } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
+import { getRestProps } from '../../utils/component';
 import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
 import FA from '../FontAwesome';
 import MenuItem from './MenuItem';
@@ -67,11 +68,10 @@ export default class Menu extends React.Component {
 
   render() {
     const { className } = this.props;
-    const props = _.omit(this.props, _.keys(Menu.propTypes));
     const { filterString } = this.state;
 
     return (
-      <Card className={cm(className, 'menu')} {...props}>
+      <Card className={cm(className, 'menu')} {...getRestProps(this)}>
         <ButtonGroup className={cm('button_group')} size="sm">
           <Button tag="a" href="/me" color="link"><FA icon={faUserCircle} /> 개인정보 수정</Button>
           <Button tag="a" href="/logout" color="link"><FA icon={faSignOutAlt} /> 로그아웃</Button>

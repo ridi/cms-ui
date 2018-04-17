@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { NavItem, NavLink } from 'reactstrap';
+import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 
 export default class MenuItem extends React.PureComponent {
@@ -32,10 +33,9 @@ export default class MenuItem extends React.PureComponent {
       children,
       onClickItem,
     } = this.props;
-    const props = _.omit(this.props, _.keys(MenuItem.propTypes));
 
     return (
-      <NavItem className={cm(className, 'item')} {...props}>
+      <NavItem className={cm(className, 'item')} {...getRestProps(this)}>
         <NavLink
           className={cm('title')}
           href={_.isEmpty(item.items) ? item.menu_url : undefined}
