@@ -1,0 +1,16 @@
+.composite_menu {
+  @import "../TreeMenu/index";
+  @import "../ListMenu/index";
+  display: inline-block;
+  min-width: 16rem;
+  padding: 1rem;
+
+  & > *:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+
+  & .button_group {
+    display: flex;
+    justify-content: center;
+  }
+}
