@@ -20,34 +20,6 @@ export default class TreeMenu extends React.Component {
     items: undefined,
   };
 
-  static buildItemTree(items) {
-    const root = { id: 0, depth: -1, children: [] };
-    const parents = [root];
-
-    _.forEach(items, (item, index) => {
-      const parent = (() => {
-        while (_.last(parents).depth >= item.depth) {
-          parents.pop();
-        }
-        return _.last(parents);
-      })();
-
-      const itemWithChildren = { ...item, children: [] };
-      parent.children.push(itemWithChildren);
-
-      if (item === _.last(items)) {
-        return;
-      }
-
-      if (items[index + 1].depth > item.depth) {
-        delete itemWithChildren.href;
-        parents.push(itemWithChildren);
-      }
-    });
-
-    return root;
-  }
-
   static defaultState = {
     expanded: {},
   };
@@ -129,14 +101,13 @@ export default class TreeMenu extends React.Component {
 
   render() {
     const { className, items } = this.props;
-    const rootItem = TreeMenu.buildItemTree(items);
     return (
       <Nav
         className={cm(className, 'tree_menu')}
         vertical
         {...getRestProps(this)}
       >
-        {_.map(rootItem.children, this.renderItemTree)}
+        {_.map(items, this.renderItemTree)}
       </Nav>
     );
   }

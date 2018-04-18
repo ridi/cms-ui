@@ -22,6 +22,13 @@ export default class Menu extends React.Component {
     items: undefined,
   };
 
+  static flattenItems(items) {
+    return _.flatten(_.map(items, item => [
+      item,
+      ...Menu.flattenItems(item.children),
+    ]));
+  }
+
   static filterItems(items, filterString) {
     const keywords = _.filter(_.split(filterString, ' '), _.identity);
 
@@ -55,7 +62,8 @@ export default class Menu extends React.Component {
       );
     }
 
-    const filteredItems = Menu.filterItems(items, filterString);
+    const flattenedItems = Menu.flattenItems(items);
+    const filteredItems = Menu.filterItems(flattenedItems, filterString);
     return (
       <ListMenu items={filteredItems} />
     );

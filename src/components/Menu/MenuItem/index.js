@@ -4,16 +4,19 @@ import { NavItem, NavLink } from 'reactstrap';
 import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 
+const itemShape = {
+  id: PropTypes.number,
+  content: PropTypes.node,
+  href: PropTypes.string,
+  target: PropTypes.string,
+  depth: PropTypes.number,
+};
+itemShape.children = PropTypes.arrayOf(PropTypes.shape(itemShape));
+
 export default class MenuItem extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    item: PropTypes.shape({
-      id: PropTypes.number,
-      content: PropTypes.node,
-      href: PropTypes.string,
-      target: PropTypes.string,
-      depth: PropTypes.number,
-    }),
+    item: PropTypes.shape(itemShape),
     children: PropTypes.node,
     onClickItem: PropTypes.func,
   };
