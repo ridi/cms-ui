@@ -12,13 +12,13 @@ export const getRestProps = (componentInstance) => {
 };
 
 export const mapProps = mapper => (
-  Component => (
-    class extends React.Component {
-      static displayName = `mapProps(${Component.name})`;
+  (Component) => {
+    const MappedComponent = props => (
+      <Component {...mapper(props)} />
+    );
 
-      render() {
-        return <Component {...mapper(this.props)} />;
-      }
-    }
-  )
+    MappedComponent.displayName = `mapProps(${Component.name})`;
+
+    return MappedComponent;
+  }
 );
