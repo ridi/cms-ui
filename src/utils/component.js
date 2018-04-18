@@ -1,4 +1,7 @@
-/* eslint react/no-multi-comp: 0 */
+/* eslint
+react/no-multi-comp: 0
+react/no-find-dom-node: 0
+*/
 
 import React from 'react';
 import ReactDOM from 'react-dom';
