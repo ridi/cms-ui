@@ -13,11 +13,13 @@ export default class TreeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    forceExpand: PropTypes.bool,
   };
 
   static defaultProps = {
     className: undefined,
     items: undefined,
+    forceExpand: false,
   };
 
   static defaultState = {
@@ -52,6 +54,11 @@ export default class TreeMenu extends React.Component {
   }
 
   onClickItem(item) {
+    const { forceExpand } = this.props;
+    if (forceExpand) {
+      return;
+    }
+
     const { expanded } = this.state;
     this.setState({
       expanded: {
@@ -75,7 +82,10 @@ export default class TreeMenu extends React.Component {
       );
     }
 
-    const isOpen = this.state.expanded[item.id];
+    const { forceExpand } = this.props;
+    const { expanded } = this.state;
+
+    const isOpen = forceExpand || expanded[item.id];
     return (
       <MenuItem
         key={key}

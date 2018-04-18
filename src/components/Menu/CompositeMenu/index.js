@@ -9,7 +9,6 @@ import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 import TreeMenu from '../TreeMenu';
-import ListMenu from '../ListMenu';
 
 export default class Menu extends React.Component {
   static propTypes = {
@@ -29,20 +28,32 @@ export default class Menu extends React.Component {
     ]));
   }
 
-  static filterItems(items, filterString) {
-    const keywords = _.filter(_.split(filterString, ' '), _.identity);
-
-    if (_.isEmpty(keywords)) {
-      return items;
-    }
-
-    return _.filter(items, item => (
-      _.every(keywords, (value) => {
-        const content = _.toLower(item.content);
-        const keyword = _.toLower(value);
-        return _.includes(content, keyword);
-      })
+  static filterItems(items, keywords) {
+    const match = item => _.every(keywords, keyword => (
+      _.includes(_.toLower(item.content), _.toLower(keyword))
     ));
+
+    const mappedItems = _.map(items, (item) => {
+      if (_.isEmpty(item.children)) {
+        if (match(item)) {
+          return item;
+        }
+        return undefined;
+      }
+
+      const filteredChildren = Menu.filterItems(item.children, keywords);
+
+      if (_.isEmpty(filteredChildren)) {
+        return undefined;
+      }
+
+      return {
+        ...item,
+        children: filteredChildren,
+      };
+    });
+
+    return _.filter(mappedItems, _.identity);
   }
 
   constructor(props) {
@@ -55,17 +66,17 @@ export default class Menu extends React.Component {
   renderMenu() {
     const { items } = this.props;
     const { filterString } = this.state;
+    const keywords = _.filter(_.split(filterString, ' '), _.identity);
 
-    if (!filterString) {
+    if (_.isEmpty(keywords)) {
       return (
         <TreeMenu items={items} />
       );
     }
 
-    const flattenedItems = Menu.flattenItems(items);
-    const filteredItems = Menu.filterItems(flattenedItems, filterString);
+    const filteredItems = Menu.filterItems(items, keywords);
     return (
-      <ListMenu items={filteredItems} />
+      <TreeMenu items={filteredItems} forceExpand />
     );
   }
 
