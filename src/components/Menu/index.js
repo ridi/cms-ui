@@ -8,19 +8,14 @@ import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import { getRestProps, mapProps } from '../../utils/component';
 import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
 import FA from '../FontAwesome';
+import MenuItem from './MenuItem';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
 
 class Menu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      menu_title: PropTypes.node,
-      menu_url: PropTypes.string,
-      menu_deep: PropTypes.number,
-      is_newtab: PropTypes.bool,
-    })),
+    items: PropTypes.arrayOf(MenuItem.propTypes.item),
   };
 
   static defaultProps = {
@@ -98,11 +93,11 @@ class Menu extends React.Component {
 
 export default mapProps(props => ({
   ...props,
-  items: _.map(props.items, data => ({
-    id: data.id,
-    content: data.menu_title,
-    href: data.menu_url,
-    target: data.is_newtab ? '_blank' : undefined,
-    depth: data.menu_deep,
+  items: _.map(props.items, item => ({
+    id: item.id,
+    content: item.menu_title,
+    href: item.menu_url,
+    target: item.is_newtab ? '_blank' : undefined,
+    depth: item.menu_deep,
   })),
 }))(Menu);
