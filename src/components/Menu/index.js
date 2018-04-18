@@ -5,21 +5,13 @@ import _ from 'lodash';
 import { Button, ButtonGroup, Card, Input } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
-import { getRestProps } from '../../utils/component';
+import { getRestProps, mapProps } from '../../utils/component';
 import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
 import FA from '../FontAwesome';
 import TreeMenu from './TreeMenu';
 import ListMenu from './ListMenu';
 
-const mapData = data => ({
-  id: data.id,
-  content: data.menu_title,
-  href: data.menu_url,
-  target: data.is_newtab ? '_blank' : undefined,
-  depth: data.menu_deep,
-});
-
-export default class Menu extends React.Component {
+class Menu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
@@ -64,7 +56,7 @@ export default class Menu extends React.Component {
   }
 
   renderMenu() {
-    const items = _.map(this.props.items, mapData);
+    const { items } = this.props;
     const { filterString } = this.state;
 
     if (!filterString) {
@@ -103,3 +95,14 @@ export default class Menu extends React.Component {
     );
   }
 }
+
+export default mapProps(props => ({
+  ...props,
+  items: _.map(props.items, data => ({
+    id: data.id,
+    content: data.menu_title,
+    href: data.menu_url,
+    target: data.is_newtab ? '_blank' : undefined,
+    depth: data.menu_deep,
+  })),
+}))(Menu);
