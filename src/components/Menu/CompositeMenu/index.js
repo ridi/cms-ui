@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
-import { Button, ButtonGroup, Card, Input } from 'reactstrap';
+import { Alert, Button, ButtonGroup, Card, Input } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
@@ -84,6 +84,13 @@ export default class Menu extends React.Component {
     }
 
     const filteredItems = Menu.filterItems(items, keywords);
+
+    if (_.isEmpty(filteredItems)) {
+      return (
+        <Alert color="secondary">검색 결과가 없습니다.</Alert>
+      );
+    }
+
     return (
       <TreeMenu items={filteredItems} forceExpand />
     );
