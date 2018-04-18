@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Button, ButtonGroup, Card, Input } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
@@ -58,9 +60,16 @@ export default class Menu extends React.Component {
 
   constructor(props) {
     super(props);
+
+    es6ClassBindAll(this);
+
     this.state = {
       filterString: '',
     };
+  }
+
+  clearFilterString() {
+    this.setState({ filterString: '' });
   }
 
   renderMenu() {
@@ -91,13 +100,21 @@ export default class Menu extends React.Component {
           <Button tag="a" href="/logout" color="link"><FA icon={faSignOutAlt} /> 로그아웃</Button>
         </ButtonGroup>
 
-        <Input
-          bsSize="sm"
-          type="search"
-          placeholder="메뉴검색..."
-          value={filterString}
-          onChange={e => this.setState({ filterString: e.target.value })}
-        />
+        <div className={cm('filter_container')}>
+          <Input
+            bsSize="sm"
+            type="search"
+            placeholder="메뉴검색..."
+            value={filterString}
+            onChange={e => this.setState({ filterString: e.target.value })}
+          />
+
+          {filterString && (
+            <Button className={cm('clear_button')} onClick={this.clearFilterString}>
+              <FA icon={faTimes} />
+            </Button>
+          )}
+        </div>
 
         {this.renderMenu()}
       </Card>

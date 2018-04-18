@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
 import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
@@ -44,8 +45,7 @@ export default class TreeMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onClickItem = this.onClickItem.bind(this);
-    this.renderItemTree = this.renderItemTree.bind(this);
+    es6ClassBindAll(this);
 
     this.state = {
       ...TreeMenu.defaultState,
