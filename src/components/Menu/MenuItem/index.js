@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import es6ClassBindAll from 'es6-class-bind-all';
 import { NavItem, NavLink } from 'reactstrap';
 import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
@@ -18,31 +19,39 @@ export default class MenuItem extends React.PureComponent {
     className: PropTypes.string,
     item: PropTypes.shape(itemShape),
     children: PropTypes.node,
-    onClickItem: PropTypes.func,
+    onItemClick: PropTypes.func,
   };
 
   static defaultProps = {
     className: undefined,
     item: undefined,
     children: undefined,
-    onClickItem: () => {},
+    onItemClick: () => {},
   };
+
+  constructor(props) {
+    super(props);
+    es6ClassBindAll(this);
+  }
 
   render() {
     const {
       className,
       item,
       children,
-      onClickItem,
+      onItemClick,
     } = this.props;
 
     return (
-      <NavItem className={cm(className, 'item')} {...getRestProps(this)}>
+      <NavItem
+        className={cm(className, 'item')}
+        {...getRestProps(this)}
+      >
         <NavLink
           className={cm('title')}
           href={item.href}
           target={item.target}
-          onClick={() => onClickItem(item)}
+          onClick={() => onItemClick(item)}
         >
           {item.title}
         </NavLink>

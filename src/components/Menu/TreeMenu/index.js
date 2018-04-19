@@ -10,6 +10,12 @@ import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
+const isActiveUrl = (url) => {
+  const a = document.createElement('a');
+  a.href = url;
+  return a.href === window.location.href;
+};
+
 export default class TreeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
@@ -53,7 +59,19 @@ export default class TreeMenu extends React.Component {
     };
   }
 
-  onClickItem(item) {
+  componentDidMount() {
+    window.addEventListener('hashchange', this.onHashChange, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.onHashChange, false);
+  }
+
+  onHashChange() {
+    this.forceUpdate();
+  }
+
+  onItemClick(item) {
     const { forceExpand } = this.props;
     if (forceExpand) {
       return;
@@ -78,7 +96,11 @@ export default class TreeMenu extends React.Component {
   renderItemTree(item, key) {
     if (_.isEmpty(item.children)) {
       return (
-        <MenuItem key={key} className={cm('leaf', `depth_${item.depth}`)} item={item} />
+        <MenuItem
+          key={key}
+          className={cm('leaf', `depth_${item.depth}`, { active: isActiveUrl(item.href) })}
+          item={item}
+        />
       );
     }
 
@@ -99,7 +121,7 @@ export default class TreeMenu extends React.Component {
             </React.Fragment>
           ),
         }}
-        onClickItem={this.onClickItem}
+        onItemClick={this.onItemClick}
       >
         <Collapse isOpen={isOpen}>
           <Nav vertical>
