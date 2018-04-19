@@ -45,7 +45,8 @@ export const getMenuItems = async () => {
 
     const items = [];
 
-    for (let i = 0; i < 3; i += 1) {
+    items.push(createMenuItem(depth));
+    for (let i = 0; i < 2; i += 1) {
       items.push(createMenuItem(depth));
       items.push(...createHighOrderMenuItems(depth + 1, maxDepth));
     }

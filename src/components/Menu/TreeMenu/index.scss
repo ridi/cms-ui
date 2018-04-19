@@ -1,15 +1,56 @@
 .tree_menu {
   @import "../MenuItem/index";
-  padding-left: 1.25em;
 
-  & .title {
-    &:not([href]) {
-      margin-left: -1.25em;
+  & .item {
+    & .title {
+      & .collapse_indicator {
+        margin-left: -1.25em;
+      }
+
+      &:hover {
+        background-color: #0001;
+      }
     }
-  }
 
-  & .child_container {
-    padding-left: .75rem;
+    &.depth_0 {
+      .title { padding-left: calc(1.25rem + .75rem * 0); }
+    }
+
+    &.depth_1 {
+      .title { padding-left: calc(1.25rem + .75rem * 1); }
+    }
+
+    &.depth_2 {
+      .title { padding-left: calc(1.25rem + .75rem * 2); }
+    }
+
+    &.depth_3 {
+      .title { padding-left: calc(1.25rem + .75rem * 3); }
+    }
+
+    &.depth_4 {
+      .title { padding-left: calc(1.25rem + .75rem * 4); }
+    }
+
+    &.depth_5 {
+      .title { padding-left: calc(1.25rem + .75rem * 5); }
+    }
+
+    &.depth_6 {
+      .title { padding-left: calc(1.25rem + .75rem * 6); }
+    }
+
+    &.depth_7 {
+      .title { padding-left: calc(1.25rem + .75rem * 7); }
+    }
+
+    &.depth_8 {
+      .title { padding-left: calc(1.25rem + .75rem * 8); }
+    }
+
+    &.depth_9 {
+      .title { padding-left: calc(1.25rem + .75rem * 9); }
+    }
   }
 }
 
