@@ -23,13 +23,6 @@ export default class Menu extends React.Component {
     items: undefined,
   };
 
-  static flattenItems(items) {
-    return _.flatten(_.map(items, item => [
-      item,
-      ...Menu.flattenItems(item.children),
-    ]));
-  }
-
   static filterItems(items, keywords) {
     const match = item => _.every(keywords, keyword => (
       _.includes(_.toLower(item.title), _.toLower(keyword))
