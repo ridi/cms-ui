@@ -78,7 +78,7 @@ export default class TreeMenu extends React.Component {
   renderItemTree(item, key) {
     if (_.isEmpty(item.children)) {
       return (
-        <MenuItem key={key} item={item} />
+        <MenuItem key={key} className={cm('leaf')} item={item} />
       );
     }
 
@@ -100,7 +100,7 @@ export default class TreeMenu extends React.Component {
         }}
         onClickItem={this.onClickItem}
       >
-        <Collapse isOpen={isOpen}>
+        <Collapse className={cm('child_container')} isOpen={isOpen}>
           <Nav vertical>
             {_.map(item.children, this.renderItemTree)}
           </Nav>

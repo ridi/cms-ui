@@ -1,18 +1,15 @@
 .tree_menu {
   @import "../MenuItem/index";
-
-  & .item {
-    margin-left: .5rem;
-  }
-
-  & > .item {
-    margin-left: 0;
-  }
+  padding-left: 1.25em;
 
   & .title {
-    &[href] {
-      margin-left: 1rem;
+    &:not([href]) {
+      margin-left: -1.25em;
     }
+  }
+
+  & .child_container {
+    padding-left: .75rem;
   }
 }
 
