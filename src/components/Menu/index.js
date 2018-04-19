@@ -1,92 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Button, ButtonGroup, Card, Input } from 'reactstrap';
-import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
-import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
-import { modularizeClassNames as cm, modularizeRootNode } from '../../utils/css';
-import FA from '../FontAwesome';
-import MenuItem from './MenuItem';
-import TreeMenu from './TreeMenu';
-import ListMenu from './ListMenu';
+import CompositeMenu from './CompositeMenu';
+import { mapProps, modularize } from '../../utils/component';
 
-export default class Menu extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
-  };
+function buildItemTree(items) {
+  const root = { id: 0, depth: -1, children: [] };
+  const parents = [root];
 
-  static defaultProps = {
-    className: undefined,
-    items: undefined,
-  };
+  _.forEach(items, (item, index) => {
+    const parent = (() => {
+      while (_.last(parents).depth >= item.depth) {
+        parents.pop();
+      }
+      return _.last(parents);
+    })();
 
-  static filterItems(items, filterString) {
-    const keywords = _.filter(_.split(filterString, ' '), _.identity);
+    const itemWithChildren = { ...item, children: [] };
+    parent.children.push(itemWithChildren);
 
-    if (!_.size(keywords)) {
-      return items;
+    if (item === _.last(items)) {
+      return;
     }
 
-    return _.filter(items, item => (
-      _.every(keywords, (value) => {
-        const title = _.toLower(item.menu_title);
-        const keyword = _.toLower(value);
-        return _.includes(title, keyword);
-      })
-    ));
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      filterString: '',
-    };
-  }
-
-  componentDidMount() {
-    modularizeRootNode(ReactDOM.findDOMNode(this).parentNode);
-  }
-
-  renderMenu() {
-    const { items } = this.props;
-    const { filterString } = this.state;
-
-    if (!filterString) {
-      return (
-        <TreeMenu items={items} />
-      );
+    if (items[index + 1].depth > item.depth) {
+      delete itemWithChildren.href;
+      parents.push(itemWithChildren);
     }
+  });
 
-    const filteredItems = Menu.filterItems(items, filterString);
-    return (
-      <ListMenu items={filteredItems} />
-    );
-  }
-
-  render() {
-    const { className } = this.props;
-    const props = _.omit(this.props, _.keys(Menu.propTypes));
-    const { filterString } = this.state;
-
-    return (
-      <Card className={cm(className, 'menu')} {...props}>
-        <ButtonGroup className={cm('button_group')} size="sm">
-          <Button tag="a" href="/me" color="link"><FA icon={faUserCircle} /> 개인정보 수정</Button>
-          <Button tag="a" href="/logout" color="link"><FA icon={faSignOutAlt} /> 로그아웃</Button>
-        </ButtonGroup>
-
-        <Input
-          bsSize="sm"
-          type="search"
-          placeholder="메뉴검색..."
-          value={filterString}
-          onChange={e => this.setState({ filterString: e.target.value })}
-        />
-
-        {this.renderMenu()}
-      </Card>
-    );
-  }
+  return root;
 }
+
+export default _.flowRight([
+  modularize,
+  mapProps(props => ({
+    ...props,
+    items: (() => {
+      const mappedItems = _.map(props.items, item => ({
+        id: item.id,
+        title: item.menu_title,
+        href: item.menu_url,
+        target: item.is_newtab ? '_blank' : undefined,
+        depth: item.menu_deep,
+      }));
+
+      return buildItemTree(mappedItems).children;
+    })(),
+  })),
+])(CompositeMenu);

@@ -1,17 +1,57 @@
-@import "../MenuItem/index";
-
 .tree_menu {
+  @import "../MenuItem/index";
+
   & .item {
-    margin-left: .5rem;
-  }
+    & .title {
+      & .collapse_indicator {
+        margin-left: -1.25em;
+      }
+    }
 
-  & > .item {
-    margin-left: 0;
-  }
+    &.active {
+      & .title {
+        font-weight: bold;
+      }
+    }
 
-  & .title {
-    &[href] {
-      margin-left: 1rem;
+    &.depth_0 {
+      .title { padding-left: calc(1.25rem + .75rem * 0); }
+    }
+
+    &.depth_1 {
+      .title { padding-left: calc(1.25rem + .75rem * 1); }
+    }
+
+    &.depth_2 {
+      .title { padding-left: calc(1.25rem + .75rem * 2); }
+    }
+
+    &.depth_3 {
+      .title { padding-left: calc(1.25rem + .75rem * 3); }
+    }
+
+    &.depth_4 {
+      .title { padding-left: calc(1.25rem + .75rem * 4); }
+    }
+
+    &.depth_5 {
+      .title { padding-left: calc(1.25rem + .75rem * 5); }
+    }
+
+    &.depth_6 {
+      .title { padding-left: calc(1.25rem + .75rem * 6); }
+    }
+
+    &.depth_7 {
+      .title { padding-left: calc(1.25rem + .75rem * 7); }
+    }
+
+    &.depth_8 {
+      .title { padding-left: calc(1.25rem + .75rem * 8); }
+    }
+
+    &.depth_9 {
+      .title { padding-left: calc(1.25rem + .75rem * 9); }
     }
   }
 }

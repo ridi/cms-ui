@@ -1,50 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
 import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
 import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
+import { getRestProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
+
+const isActiveUrl = (url) => {
+  const a = document.createElement('a');
+  a.href = url;
+  return a.href === window.location.href;
+};
 
 export default class TreeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    forceExpand: PropTypes.bool,
   };
 
   static defaultProps = {
     className: undefined,
     items: undefined,
+    forceExpand: false,
   };
-
-  static buildItemTree(items) {
-    const root = { id: 0, menu_deep: -1, items: [] };
-    const parents = [root];
-
-    _.forEach(items, (item, index) => {
-      const parent = (() => {
-        while (_.last(parents).menu_deep >= item.menu_deep) {
-          parents.pop();
-        }
-        return _.last(parents);
-      })();
-
-      const itemWithChildren = { ...item, items: [] };
-      parent.items.push(itemWithChildren);
-
-      if (item === _.last(items)) {
-        return;
-      }
-
-      if (items[index + 1].menu_deep > item.menu_deep) {
-        parents.push(itemWithChildren);
-      }
-    });
-
-    return root;
-  }
 
   static defaultState = {
     expanded: {},
@@ -68,8 +51,7 @@ export default class TreeMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onClickItem = this.onClickItem.bind(this);
-    this.renderItemTree = this.renderItemTree.bind(this);
+    es6ClassBindAll(this);
 
     this.state = {
       ...TreeMenu.defaultState,
@@ -77,7 +59,24 @@ export default class TreeMenu extends React.Component {
     };
   }
 
-  onClickItem(item) {
+  componentDidMount() {
+    window.addEventListener('hashchange', this.onHashChange, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.onHashChange, false);
+  }
+
+  onHashChange() {
+    this.forceUpdate();
+  }
+
+  onItemClick(item) {
+    const { forceExpand } = this.props;
+    if (forceExpand) {
+      return;
+    }
+
     const { expanded } = this.state;
     this.setState({
       expanded: {
@@ -95,30 +94,38 @@ export default class TreeMenu extends React.Component {
   }
 
   renderItemTree(item, key) {
-    if (_.isEmpty(item.items)) {
+    if (_.isEmpty(item.children)) {
       return (
-        <MenuItem key={key} item={item} />
+        <MenuItem
+          key={key}
+          className={cm('leaf', `depth_${item.depth}`, { active: isActiveUrl(item.href) })}
+          item={item}
+        />
       );
     }
 
-    const isOpen = this.state.expanded[item.id];
+    const { forceExpand } = this.props;
+    const { expanded } = this.state;
+
+    const isOpen = forceExpand || expanded[item.id];
     return (
       <MenuItem
         key={key}
+        className={cm(`depth_${item.depth}`)}
         item={{
           ...item,
-          menu_title: (
+          title: (
             <React.Fragment>
-              <FA icon={isOpen ? faCaretDown : faCaretRight} />
-              {item.menu_title}
+              <FA className={cm('collapse_indicator')} icon={isOpen ? faCaretDown : faCaretRight} />
+              {item.title}
             </React.Fragment>
           ),
         }}
-        onClickItem={this.onClickItem}
+        onItemClick={this.onItemClick}
       >
         <Collapse isOpen={isOpen}>
           <Nav vertical>
-            {_.map(item.items, this.renderItemTree)}
+            {_.map(item.children, this.renderItemTree)}
           </Nav>
         </Collapse>
       </MenuItem>
@@ -127,11 +134,13 @@ export default class TreeMenu extends React.Component {
 
   render() {
     const { className, items } = this.props;
-    const props = _.omit(this.props, _.keys(TreeMenu.propTypes));
-    const rootItem = TreeMenu.buildItemTree(items);
     return (
-      <Nav className={cm(className, 'tree_menu')} vertical {...props}>
-        {_.map(rootItem.items, this.renderItemTree)}
+      <Nav
+        className={cm(className, 'tree_menu')}
+        vertical
+        {...getRestProps(this)}
+      >
+        {_.map(items, this.renderItemTree)}
       </Nav>
     );
   }
