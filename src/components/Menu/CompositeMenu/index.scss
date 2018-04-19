@@ -1,4 +1,5 @@
 .composite_menu {
+  @import "../MenuFilter/index";
   @import "../TreeMenu/index";
   display: inline-block;
   min-width: 16rem;
@@ -11,22 +12,5 @@
   & .button_group {
     display: flex;
     justify-content: center;
-  }
-
-  & .filter_container {
-    position: relative;
-
-    & .clear_button {
-      position: absolute;
-      top: 50%;
-      right: .5rem;
-      margin-top: -.5rem;
-      padding: 0;
-      border-radius: 50%;
-      width: 1rem;
-      height: 1rem;
-      line-height: 0;
-      font-size: .5rem;
-    }
   }
 }
