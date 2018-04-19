@@ -12,7 +12,6 @@ module.exports = (options) => {
 
   const styleLoaderOptions = {
     sourceMap,
-    insertAt: 'top',
     hmr: !isProduction,
   };
 
