@@ -92,10 +92,10 @@ export default class TreeMenu extends React.Component {
         className={cm(`depth_${item.depth}`)}
         item={{
           ...item,
-          content: (
+          title: (
             <React.Fragment>
               <FA className={cm('collapse_indicator')} icon={isOpen ? faCaretDown : faCaretRight} />
-              {item.content}
+              {item.title}
             </React.Fragment>
           ),
         }}

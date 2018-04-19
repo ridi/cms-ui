@@ -6,7 +6,7 @@ import { modularizeClassNames as cm } from '../../../utils/css';
 
 const itemShape = {
   id: PropTypes.number,
-  content: PropTypes.node,
+  title: PropTypes.node,
   href: PropTypes.string,
   target: PropTypes.string,
   depth: PropTypes.number,
@@ -44,7 +44,7 @@ export default class MenuItem extends React.PureComponent {
           target={item.target}
           onClick={() => onClickItem(item)}
         >
-          {item.content}
+          {item.title}
         </NavLink>
         {children}
       </NavItem>

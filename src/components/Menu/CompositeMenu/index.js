@@ -32,7 +32,7 @@ export default class Menu extends React.Component {
 
   static filterItems(items, keywords) {
     const match = item => _.every(keywords, keyword => (
-      _.includes(_.toLower(item.content), _.toLower(keyword))
+      _.includes(_.toLower(item.title), _.toLower(keyword))
     ));
 
     const mappedItems = _.map(items, (item) => {

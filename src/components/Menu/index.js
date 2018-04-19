@@ -37,7 +37,7 @@ export default _.flowRight([
     items: (() => {
       const mappedItems = _.map(props.items, item => ({
         id: item.id,
-        content: item.menu_title,
+        title: item.menu_title,
         href: item.menu_url,
         target: item.is_newtab ? '_blank' : undefined,
         depth: item.menu_deep,
