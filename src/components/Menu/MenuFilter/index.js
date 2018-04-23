@@ -4,7 +4,7 @@ import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Button, Input } from 'reactstrap';
 import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
-import { getRestProps } from '../../../utils/component';
+import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
@@ -87,7 +87,7 @@ export default class MenuFilter extends React.Component {
     const { filterString } = this.state;
 
     return (
-      <div className={cm(className, 'menu_filter')} {...getRestProps(this)}>
+      <div className={cm(className, 'menu_filter')} {...getPassThroughProps(this)}>
         <Input
           bsSize="sm"
           type="search"

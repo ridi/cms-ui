@@ -4,7 +4,7 @@ import/prefer-default-export: 0
 
 import _ from 'lodash';
 
-export const getRestProps = (componentInstance) => {
+export const getPassThroughProps = (componentInstance) => {
   const {
     props,
     constructor: {
