@@ -13,7 +13,3 @@ export const setGlobalCssModule = (cssModule, rootModuleName) => {
 };
 
 export const modularizeClassNames = (...args) => Util.mapToCssModules(cn(...args));
-
-export const modularizeRootNode = (rootNode) => {
-  rootNode.classList.add(globalCssModule.root);
-};

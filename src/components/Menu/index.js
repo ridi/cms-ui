@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { compose, mapProps } from 'recompose';
 import CompositeMenu from './CompositeMenu';
-import { modularize } from '../../utils/component';
+import { modularizeParentCss } from '../../higherOrderComponents';
 
 function buildItemTree(items) {
   const root = { id: 0, depth: -1, children: [] };
@@ -32,7 +32,7 @@ function buildItemTree(items) {
 }
 
 export default compose(
-  modularize,
+  modularizeParentCss(),
   mapProps(props => ({
     ...props,
     items: (() => {
