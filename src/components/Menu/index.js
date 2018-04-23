@@ -1,6 +1,7 @@
 import _ from 'lodash';
+import { compose, mapProps } from 'recompose';
 import CompositeMenu from './CompositeMenu';
-import { mapProps, modularize } from '../../utils/component';
+import { modularize } from '../../utils/component';
 
 function buildItemTree(items) {
   const root = { id: 0, depth: -1, children: [] };
@@ -30,7 +31,7 @@ function buildItemTree(items) {
   return root;
 }
 
-export default _.flowRight([
+export default compose(
   modularize,
   mapProps(props => ({
     ...props,
@@ -46,4 +47,4 @@ export default _.flowRight([
       return buildItemTree(mappedItems).children;
     })(),
   })),
-])(CompositeMenu);
+)(CompositeMenu);

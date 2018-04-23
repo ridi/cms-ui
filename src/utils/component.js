@@ -18,20 +18,6 @@ export const getRestProps = (componentInstance) => {
   return _.omit(props, _.keys(propTypes));
 };
 
-export const mapProps = mapper => (
-  Component => (
-    class extends React.PureComponent {
-      static get name() {
-        return `mapProps(${Component.name})`;
-      }
-
-      render() {
-        return <Component {...mapper(this.props)} />;
-      }
-    }
-  )
-);
-
 export const modularize = Component => (
   class extends React.PureComponent {
     static get name() {
