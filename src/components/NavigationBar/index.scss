@@ -1,12 +1,73 @@
 .navigation_bar {
-  & .title {
-    margin-bottom: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
+  @import "../Menu/FilterableMenu/index";
+  max-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
 
-    & > a {
-      color: #fff;
-      text-decoration: none;
+  & .content_container {
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+
+    & .title {
+      margin-bottom: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      & > a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  & .menu_container {
+    flex-flow: row nowrap;
+    padding: .5rem 1rem;
+    //background: #fff;
+
+    &.show {
+      display: flex;
+    }
+
+    & .filterable_menu {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+
+      & .tree_menu {
+        flex: 1;
+        overflow: scroll;
+      }
+    }
+  }
+
+  &.navbar-dark {
+    & .menu_container {
+      & .filterable_menu {
+        & .tree_menu {
+          & .item {
+            & .title {
+              color: rgba($white, .85);
+
+              &:hover {
+                color: rgba($white, 1);
+              }
+
+              &:hover {
+                background-color: rgba($white, .05);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

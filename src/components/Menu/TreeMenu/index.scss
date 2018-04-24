@@ -1,5 +1,6 @@
 .tree_menu {
   @import "../MenuItem/index";
+  flex-wrap: nowrap;
 
   & .item {
     & .title {

@@ -38,7 +38,7 @@ function mapItemsToItemTrees(items) {
   return root.children;
 }
 
-function mapItems(items) {
+export function mapItems(items) {
   return _.flow([
     mapItemProperties,
     mapItemsToItemTrees,
