@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { compose, mapProps, setPropTypes } from 'recompose';
+import * as recompose from 'recompose';
 import { wrapWithCssModule } from '../../higherOrderComponents';
 import propsMapper from './propsMapper';
 import CompositeMenu from './CompositeMenu';
@@ -14,8 +14,8 @@ const propTypes = {
   })),
 };
 
-export default compose(
+export default recompose.compose(
   wrapWithCssModule(),
-  setPropTypes(propTypes),
-  mapProps(propsMapper),
+  recompose.setPropTypes(propTypes),
+  recompose.mapProps(propsMapper),
 )(CompositeMenu);
