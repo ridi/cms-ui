@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Menu } from '@ridi/cms-ui';
+import { Menu, NavigationBar } from '@ridi/cms-ui';
 import { getMenuItems } from './mock';
 import './styles.css';
 
@@ -21,12 +21,12 @@ class App extends React.Component {
 
   render() {
     const { menuItems } = this.state;
-    if (!menuItems) {
-      return (
-        <div>Loading...</div>
-      );
-    }
-    return <Menu items={menuItems} />;
+    return (
+      <div>
+        <NavigationBar />
+        <Menu items={menuItems} />
+      </div>
+    );
   }
 }
 

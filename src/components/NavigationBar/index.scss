@@ -1,0 +1,12 @@
+.navigation_bar {
+  & .title {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    & > a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
