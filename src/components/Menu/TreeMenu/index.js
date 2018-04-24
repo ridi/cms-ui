@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
 import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
 import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
-import { getRestProps } from '../../../utils/component';
+import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
@@ -138,7 +138,7 @@ export default class TreeMenu extends React.Component {
       <Nav
         className={cm(className, 'tree_menu')}
         vertical
-        {...getRestProps(this)}
+        {...getPassThroughProps(this)}
       >
         {_.map(items, this.renderItemTree)}
       </Nav>

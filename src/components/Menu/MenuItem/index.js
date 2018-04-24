@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
 import { NavItem, NavLink } from 'reactstrap';
-import { getRestProps } from '../../../utils/component';
+import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 
 const itemShape = {
@@ -45,7 +45,7 @@ export default class MenuItem extends React.PureComponent {
     return (
       <NavItem
         className={cm(className, 'item')}
-        {...getRestProps(this)}
+        {...getPassThroughProps(this)}
       >
         <NavLink
           className={cm('title')}

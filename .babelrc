@@ -3,6 +3,14 @@
     "babel-preset-react-app"
   ],
   "plugins": [
-    "lodash"
+    [
+      "lodash",
+      {
+        "id": [
+          "lodash",
+          "recompose"
+        ]
+      }
+    ]
   ]
 }
