@@ -5,18 +5,17 @@ import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import MeButton from '../../buttons/MeButton';
 import LogoutButton from '../../buttons/LogoutButton';
-import MenuItem from '../MenuItem';
 import FilterableMenu from '../FilterableMenu';
 
 export default class CompositeMenu extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    items: FilterableMenu.propTypes.items,
   };
 
   static defaultProps = {
     className: undefined,
-    items: undefined,
+    items: FilterableMenu.defaultProps.items,
   };
 
   render() {

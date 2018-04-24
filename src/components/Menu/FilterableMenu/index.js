@@ -6,18 +6,17 @@ import { Alert } from 'reactstrap';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import MenuFilter from '../MenuFilter';
-import MenuItem from '../MenuItem';
 import TreeMenu from '../TreeMenu';
 
 export default class FilterableMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    items: TreeMenu.propTypes.items,
   };
 
   static defaultProps = {
     className: undefined,
-    items: undefined,
+    items: TreeMenu.defaultProps.items,
   };
 
   constructor(props) {
