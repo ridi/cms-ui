@@ -1,6 +1,5 @@
 .composite_menu {
-  @import "../MenuFilter/index";
-  @import "../TreeMenu/index";
+  @import "../FilterableMenu/index";
   display: inline-block;
   min-width: 17rem;
   padding: 1rem;
