@@ -2,4 +2,4 @@
 import/prefer-default-export: 0
 */
 
-export { default as modularizeParentCss } from './modularizeParentCss';
+export { default as wrapWithCssModule } from './wrapWithCssModule';

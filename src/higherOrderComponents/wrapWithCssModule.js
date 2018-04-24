@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { lifeCycle } from 'recompose';
 import { getGlobalCssModule } from '../utils/css';
 
-export default function modularizeParentCss() {
+export default function wrapWithCssModule() {
   return lifeCycle({
     componentDidMount() {
       const { parentNode } = ReactDOM.findDOMNode(this);

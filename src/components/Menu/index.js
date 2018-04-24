@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { modularizeParentCss } from '../../higherOrderComponents';
+import { wrapWithCssModule } from '../../higherOrderComponents';
 import propsMapper from './propsMapper';
 import CompositeMenu from './CompositeMenu';
 
@@ -24,4 +24,4 @@ class Menu extends React.PureComponent {
   }
 }
 
-export default modularizeParentCss()(Menu);
+export default wrapWithCssModule()(Menu);
