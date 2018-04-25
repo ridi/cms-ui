@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavigationBar } from '@ridi/cms-ui';
+import { Menu, NavigationBar } from '@ridi/cms-ui';
 import { getMenuItems } from './mock';
 import './styles.css';
 
@@ -22,8 +22,11 @@ class App extends React.Component {
   render() {
     const { menuItems } = this.state;
     return (
-      <div>
-        <NavigationBar menuItems={menuItems} />
+      <div id="container">
+        <NavigationBar id="navigation_bar" menuItems={menuItems} />
+        <Menu id="menu" items={menuItems} />
+
+        <div id="content">Ridibooks CMS UI Example.</div>
       </div>
     );
   }

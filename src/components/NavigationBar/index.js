@@ -20,7 +20,7 @@ class NavigationBar extends React.Component {
   static defaultProps = {
     className: undefined,
     menuItems: FilterableMenu.defaultProps.items,
-    expand: 'md',
+    expand: 'xl',
   };
 
   constructor(props) {

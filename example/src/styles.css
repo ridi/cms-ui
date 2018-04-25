@@ -1,4 +1,17 @@
 body {
-  margin: 56px 0 0;
-  padding: 1rem;
+  margin: 55px 0 0;
+}
+
+#container {
+  display: flex;
+  padding: .5rem;
+}
+
+#menu {
+  margin: .5rem;
+}
+
+#content {
+  flex: 1;
+  margin: .5rem;
 }
