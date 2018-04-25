@@ -7,6 +7,7 @@ import { modularizeClassNames as cm } from '../../utils/css';
 import Menu from '../Menu';
 import FilterableMenu from '../Menu/FilterableMenu';
 import { wrapWithCssModule } from '../../higherOrderComponents';
+import { getPassThroughProps } from '../../utils/component';
 import propsMapper from './propsMapper';
 
 class NavigationBar extends React.Component {
@@ -43,7 +44,14 @@ class NavigationBar extends React.Component {
     const { isOpen } = this.state;
 
     return (
-      <Navbar className={cm(className, 'navigation_bar')} fixed="top" expand={expand} color="primary" dark>
+      <Navbar
+        className={cm(className, 'navigation_bar')}
+        fixed="top"
+        expand={expand}
+        color="primary"
+        dark
+        {...getPassThroughProps(this)}
+      >
         <div className={cm('content_container')}>
           <NavbarBrand className={cm('title')} tag="h1">
             <a href="/">Ridibooks CMS</a>
