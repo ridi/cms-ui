@@ -1,18 +1,13 @@
 .composite_menu {
   @import "../FilterableMenu/index";
+  display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 0 1rem;
   background: $gray-100;
 
-  & > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
   & .navigation_bar {
-    margin: 0 -1rem;
-    margin-bottom: 1rem;
+    flex-shrink: 0;
 
     & .title {
       margin-bottom: 0;
@@ -26,15 +21,31 @@
     }
   }
 
-  & .button_container {
-    display: flex;
-    justify-content: center;
-  }
+  & .content {
+    flex: 1;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0 1rem;
 
-  & .filterable_menu {
-    & .tree_menu {
-      margin: 0 -1rem;
-      padding: 0 1rem 1rem;
+    &.show {
+      display: flex;
+    }
+
+    & .button_container {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    & .filterable_menu {
+      flex: 1;
+
+      & .tree_menu {
+        margin: 0 -1rem;
+        padding: 0 1rem 1rem;
+      }
     }
   }
 }
