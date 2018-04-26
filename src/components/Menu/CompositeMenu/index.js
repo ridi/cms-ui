@@ -8,7 +8,7 @@ import MeButton from '../../buttons/MeButton';
 import LogoutButton from '../../buttons/LogoutButton';
 import FilterableMenu from '../FilterableMenu';
 
-export default class CompositeMenu extends React.PureComponent {
+export default class CompositeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     items: FilterableMenu.propTypes.items,
