@@ -1,15 +1,23 @@
 .composite_menu {
   @import "../FilterableMenu/index";
-  display: inline-block;
-  min-width: 17rem;
-  padding: 1rem;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: .5rem;
 
-  & > *:not(:last-child) {
-    margin-bottom: .5rem;
+  & > * {
+    margin: .5rem;
   }
 
   & .button_group {
     display: flex;
     justify-content: center;
+  }
+
+  & .filterable_menu {
+    & .tree_menu {
+      margin: 0 -1rem -1rem;
+      padding: 0 1rem 1rem;
+    }
   }
 }

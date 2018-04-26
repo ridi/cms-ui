@@ -28,7 +28,7 @@ export default class CompositeMenu extends React.PureComponent {
         className={cm(
           'composite_menu',
           'd-none',
-          `d-${collapse}-inline-block`,
+          `d-${collapse}-flex`,
           className,
         )}
         {...getPassThroughProps(this)}
