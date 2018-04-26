@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Lorem from 'react-lorem-component';
 import { Menu } from '@ridi/cms-ui';
 import { getMenuItems } from './mock';
 import './styles.css';
@@ -22,10 +23,12 @@ class App extends React.Component {
   render() {
     const { menuItems } = this.state;
     return (
-      <div id="container">
+      <div>
         <Menu id="menu" items={menuItems} />
 
-        <div id="content">Ridibooks CMS UI Example.</div>
+        <h1>Ridibooks CMS UI Example</h1>
+        <hr />
+        <Lorem count={20} />
       </div>
     );
   }
