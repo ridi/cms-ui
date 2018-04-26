@@ -3,20 +3,37 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  padding: .5rem;
+  padding: 0 1rem;
+  background: $gray-100;
 
-  & > * {
-    margin: .5rem;
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
   }
 
-  & .button_group {
+  & .navigation_bar {
+    margin: 0 -1rem;
+    margin-bottom: 1rem;
+
+    & .title {
+      margin-bottom: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      & > a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  & .button_container {
     display: flex;
     justify-content: center;
   }
 
   & .filterable_menu {
     & .tree_menu {
-      margin: 0 -1rem -1rem;
+      margin: 0 -1rem;
       padding: 0 1rem 1rem;
     }
   }

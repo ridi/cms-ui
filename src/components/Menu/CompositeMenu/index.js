@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup, Card } from 'reactstrap';
+import { ButtonGroup, Navbar, NavbarBrand } from 'reactstrap';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import MeButton from '../../buttons/MeButton';
@@ -24,7 +24,7 @@ export default class CompositeMenu extends React.PureComponent {
     const { className, items, collapse } = this.props;
 
     return (
-      <Card
+      <div
         className={cm(
           'composite_menu',
           'd-none',
@@ -33,13 +33,19 @@ export default class CompositeMenu extends React.PureComponent {
         )}
         {...getPassThroughProps(this)}
       >
-        <ButtonGroup className={cm('button_group')} size="sm">
+        <Navbar className={cm('navigation_bar')} expand={collapse} color="primary" dark>
+          <NavbarBrand className={cm('title')} tag="h1">
+            <a href="/">Ridibooks CMS</a>
+          </NavbarBrand>
+        </Navbar>
+
+        <ButtonGroup className={cm('button_container')} size="sm">
           <MeButton tag="a" color="link" />
           <LogoutButton tag="a" color="link" />
         </ButtonGroup>
 
         <FilterableMenu items={items} />
-      </Card>
+      </div>
     );
   }
 }
