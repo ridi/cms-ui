@@ -4,6 +4,7 @@ import es6ClassBindAll from 'es6-class-bind-all';
 import { Button, ButtonGroup, Collapse, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
+import faEllipsisV from '@fortawesome/fontawesome-free-solid/faEllipsisV';
 import { getPassThroughProps } from '../../../utils/component';
 import { lockRootScroll, modularizeClassNames as cm } from '../../../utils/css';
 import FilterableMenu from '../FilterableMenu';
@@ -59,12 +60,14 @@ export default class CompositeMenu extends React.Component {
 
     return (
       <div className={cm('composite_menu', className)} {...getPassThroughProps(this)}>
-        <Navbar className={cm('navigation_bar')} expand="xl" color="primary" dark>
-          <NavbarBrand className={cm('title')} tag="h1">
-            <a href="/">Ridibooks CMS</a>
+        <Navbar className={cm('navigation_bar')} expand="xl" dark>
+          <NavbarBrand className={cm('title')} href="/">
+            Ridibooks CMS
           </NavbarBrand>
 
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler className={cm('toggle_button')} onClick={this.toggle}>
+            <FA icon={faEllipsisV} />
+          </NavbarToggler>
         </Navbar>
 
         <Collapse className={cm('content', 'd-xl-flex')} isOpen={isOpen}>

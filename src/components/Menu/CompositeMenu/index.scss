@@ -4,20 +4,27 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  background: $dark;
+  color: $white;
+  background-color: darken($dark, 10%);
 
   & .navigation_bar {
     flex-shrink: 0;
+    background-color: rgba($primary, .80);
+    align-items: stretch;
+    padding: 0;
+
+    & > * {
+      padding: 1rem;
+    }
 
     & .title {
-      margin-bottom: 0;
       font-size: 1.5rem;
       font-weight: bold;
+    }
 
-      & > a {
-        color: $white;
-        text-decoration: none;
-      }
+    & .toggle_button {
+      border: none;
+      color: $white;
     }
   }
 
@@ -36,10 +43,11 @@
       flex-shrink: 0;
       display: flex;
       justify-content: center;
-      padding: 1rem 0;
+      padding: .5rem 0;
 
       & .button {
-        color: rgba($white, .75);
+        color: rgba($white, .65);
+        text-decoration: none;
 
         &:hover {
           color: $white;
@@ -50,16 +58,37 @@
     & .filterable_menu {
       flex: 1;
 
+      & .menu_filter {
+        & .input {
+          color: inherit;
+          background: rgba($black, .25);
+          border-color: rgba($white, .25);
+        }
+      }
+
+      & .alert {
+        color: inherit;
+        background: none;
+        border: none;
+        padding: .5rem;
+        font-size: .9rem;
+      }
+
       & .tree_menu {
         margin: 0 -1rem;
-        padding: 0 1rem 1rem;
+        padding-bottom: 1rem;
 
         & .item {
           & .title {
-            color: rgba($white, .75);
+            color: rgba($white, .65);
 
             &:hover {
               background-color: rgba($white, .05);
+            }
+
+            &:before {
+              content: "";
+              margin: .125rem;
             }
           }
 
@@ -76,10 +105,12 @@
           &.active {
             & .title {
               color: $white;
+              background-color: rgba($primary, .5);
             }
           }
         }
       }
+
     }
   }
 }

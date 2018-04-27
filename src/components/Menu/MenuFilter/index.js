@@ -89,6 +89,7 @@ export default class MenuFilter extends React.Component {
     return (
       <div className={cm(className, 'menu_filter')} {...getPassThroughProps(this)}>
         <Input
+          className={cm('input')}
           bsSize="sm"
           type="search"
           placeholder="메뉴검색..."

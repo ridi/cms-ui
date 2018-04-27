@@ -1,5 +1,7 @@
 @import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/variables";
+@import "bootstrap.variables";
+// local copy of variables
 @import "~bootstrap/scss/mixins";
 //@import "~bootstrap/scss/root"; // :root cannot be scoped
 @import "~bootstrap/scss/reboot";
