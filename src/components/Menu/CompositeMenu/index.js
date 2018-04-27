@@ -10,14 +10,6 @@ import FilterableMenu from '../FilterableMenu';
 
 const mediaQueryList = window.matchMedia('(min-width: 1200px)');
 
-function unlockRootScroll(e) {
-  if (!e.matches) {
-    return;
-  }
-
-  lockRootScroll(false);
-}
-
 export default class CompositeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
@@ -40,11 +32,16 @@ export default class CompositeMenu extends React.Component {
   }
 
   componentDidMount() {
-    mediaQueryList.addListener(unlockRootScroll);
+    mediaQueryList.addListener(this.unlockRootScroll);
   }
 
   componentWillUnmount() {
-    mediaQueryList.removeListener(unlockRootScroll);
+    mediaQueryList.removeListener(this.unlockRootScroll);
+  }
+
+  unlockRootScroll(e) {
+    const { isOpen } = this.state;
+    lockRootScroll(isOpen && !e.matches);
   }
 
   toggle() {
