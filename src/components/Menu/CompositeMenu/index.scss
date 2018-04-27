@@ -19,7 +19,10 @@
 
     & .title {
       font-size: 1.5rem;
-      font-weight: bold;
+
+      & .logo {
+        height: 1.15rem;
+      }
     }
 
     & .toggle_button {
