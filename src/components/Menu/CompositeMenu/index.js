@@ -69,10 +69,10 @@ export default class CompositeMenu extends React.Component {
 
         <Collapse className={cm('content', 'd-xl-flex')} isOpen={isOpen}>
           <ButtonGroup className={cm('button_container')} size="sm">
-            <Button href="/me" tag="a" color="link">
+            <Button className={cm('button')} href="/me" tag="a" color="link">
               <FA icon={faUserCircle} /> 개인정보 수정
             </Button>
-            <Button href="/logout" tag="a" color="link">
+            <Button className={cm('button')} href="/logout" tag="a" color="link">
               <FA icon={faSignOutAlt} /> 로그아웃
             </Button>
           </ButtonGroup>

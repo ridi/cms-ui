@@ -6,17 +6,7 @@
     border-radius: $border-radius;
 
     &:not([href]) {
-      font-size: .9rem;
       font-weight: bold;
-      color: rgba($black, .65);
-
-      &:hover {
-        color: rgba($black, .85);
-      }
-    }
-
-    &:hover {
-      background-color: rgba($black, .05);
     }
   }
 }

@@ -4,7 +4,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  background: $gray-100;
+  background: $dark;
 
   & .navigation_bar {
     flex-shrink: 0;
@@ -37,6 +37,14 @@
       display: flex;
       justify-content: center;
       padding: 1rem 0;
+
+      & .button {
+        color: rgba($white, .75);
+
+        &:hover {
+          color: $white;
+        }
+      }
     }
 
     & .filterable_menu {
@@ -45,6 +53,32 @@
       & .tree_menu {
         margin: 0 -1rem;
         padding: 0 1rem 1rem;
+
+        & .item {
+          & .title {
+            color: rgba($white, .75);
+
+            &:hover {
+              background-color: rgba($white, .05);
+            }
+          }
+
+          .leaf {
+            & .title {
+              color: rgba($white, .5);
+
+              &:hover {
+                color: $white;
+              }
+            }
+          }
+
+          &.active {
+            & .title {
+              color: $white;
+            }
+          }
+        }
       }
     }
   }
