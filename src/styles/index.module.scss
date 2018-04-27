@@ -2,3 +2,7 @@
   @import "bootstrap";
   @import "../components/Menu/index";
 }
+
+.no_scroll {
+  overflow: hidden;
+}
