@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
-import { ButtonGroup, Collapse, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+import { Button, ButtonGroup, Collapse, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
+import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import { getPassThroughProps } from '../../../utils/component';
 import { lockRootScroll, modularizeClassNames as cm } from '../../../utils/css';
-import MeButton from '../../buttons/MeButton';
-import LogoutButton from '../../buttons/LogoutButton';
 import FilterableMenu from '../FilterableMenu';
+import FA from '../../FontAwesome';
 
 const mediaQueryList = window.matchMedia('(min-width: 1200px)');
 
@@ -68,8 +69,12 @@ export default class CompositeMenu extends React.Component {
 
         <Collapse className={cm('content', 'd-xl-flex')} isOpen={isOpen}>
           <ButtonGroup className={cm('button_container')} size="sm">
-            <MeButton tag="a" color="link" />
-            <LogoutButton tag="a" color="link" />
+            <Button href="/me" tag="a" color="link">
+              <FA icon={faUserCircle} /> 개인정보 수정
+            </Button>
+            <Button href="/logout" tag="a" color="link">
+              <FA icon={faSignOutAlt} /> 로그아웃
+            </Button>
           </ButtonGroup>
 
           <FilterableMenu items={items} />
