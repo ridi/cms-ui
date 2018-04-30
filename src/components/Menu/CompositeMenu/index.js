@@ -34,24 +34,34 @@ export default class CompositeMenu extends React.Component {
   }
 
   componentDidMount() {
-    mediaQueryList.addListener(this.unlockRootScroll);
+    mediaQueryList.addListener(this.onMediaQueryListChange);
   }
 
   componentWillUnmount() {
-    mediaQueryList.removeListener(this.unlockRootScroll);
+    mediaQueryList.removeListener(this.onMediaQueryListChange);
   }
 
-  unlockRootScroll(e) {
+  onMediaQueryListChange() {
+    this.closeMenu();
+  }
+
+  openMenu() {
+    this.setState({ isOpen: true });
+    lockRootScroll(true);
+  }
+
+  closeMenu() {
+    this.setState({ isOpen: false });
+    lockRootScroll(false);
+  }
+
+  toggleMenu() {
     const { isOpen } = this.state;
-    lockRootScroll(isOpen && !e.matches);
-  }
-
-  toggle() {
-    const isOpen = !this.state.isOpen;
-    this.setState({
-      isOpen,
-    });
-    lockRootScroll(isOpen);
+    if (isOpen) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
+    }
   }
 
   render() {
@@ -65,7 +75,7 @@ export default class CompositeMenu extends React.Component {
             <span className={cm('ridibooks')}>RIDIBOOKS</span> CMS
           </NavbarBrand>
 
-          <NavbarToggler className={cm('toggle_button')} onClick={this.toggle}>
+          <NavbarToggler className={cm('toggle_button')} onClick={this.toggleMenu}>
             <FA icon={faEllipsisV} />
           </NavbarToggler>
         </Navbar>
