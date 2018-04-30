@@ -15,6 +15,11 @@
 
     & > * {
       padding: 1rem;
+      border-radius: 0;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .05);
+      }
     }
 
     & .title {
@@ -86,6 +91,7 @@
             color: rgba($white, .65);
 
             &:hover {
+              color: $white;
               background-color: rgba($white, .05);
             }
 
@@ -98,10 +104,6 @@
           .leaf {
             & .title {
               color: rgba($white, .5);
-
-              &:hover {
-                color: $white;
-              }
             }
           }
 
