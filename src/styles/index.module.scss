@@ -1,6 +1,7 @@
 .cms_ui {
   @import "bootstrap";
   font-family: $font-family-base;
+
   &, & * {
     outline: none !important;
     -webkit-tap-highlight-color: transparent;
@@ -9,6 +10,4 @@
   @import "../components/Menu/index";
 }
 
-.no_scroll {
-  overflow: hidden;
-}
+@import "layout";

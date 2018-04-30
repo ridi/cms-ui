@@ -24,7 +24,7 @@ class App extends React.Component {
     const { menuItems } = this.state;
     return (
       <div>
-        <Menu id="menu" items={menuItems} />
+        <Menu items={menuItems} />
 
         <h1>Ridibooks CMS UI Example</h1>
         <hr />
