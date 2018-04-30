@@ -9,7 +9,6 @@ import { getPassThroughProps } from '../../../utils/component';
 import { lockRootScroll, modularizeClassNames as cm } from '../../../utils/css';
 import FilterableMenu from '../FilterableMenu';
 import FA from '../../FontAwesome';
-import Ridi from '../../Ridi';
 
 const mediaQueryList = window.matchMedia('(min-width: 1200px)');
 
@@ -63,7 +62,7 @@ export default class CompositeMenu extends React.Component {
       <div className={cm('composite_menu', className)} {...getPassThroughProps(this)}>
         <Navbar className={cm('navigation_bar')} expand="xl" dark>
           <NavbarBrand className={cm('title')} href="/">
-            <Ridi className={cm('logo')} /> CMS
+            <span className={cm('ridibooks')}>RIDIBOOKS</span> CMS
           </NavbarBrand>
 
           <NavbarToggler className={cm('toggle_button')} onClick={this.toggle}>
