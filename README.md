@@ -58,7 +58,7 @@ const Example = (props) => {
 > If this causes any problem, please notify us.
 > ```css
 > body {
->   margin: 60px 0 0 0;
+>   margin: 3.5rem 0 0 0;
 > }
 >
 > @media (min-width: 1200px) {
