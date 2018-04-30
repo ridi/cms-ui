@@ -101,9 +101,13 @@
             }
           }
 
-          .leaf {
+          &.leaf {
             & .title {
               color: rgba($white, .5);
+
+              &:hover {
+                color: $white;
+              }
             }
           }
 
