@@ -87,5 +87,5 @@ To build *cms-ui* module, please run:
 ```bash
 make build
 ```
-The output file will be generated in `lib` directory.
+The output file will be generated in `dist` directory.
 
