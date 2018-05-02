@@ -1,10 +1,16 @@
 .tree_menu {
   @import "../MenuItem/index";
+  flex-wrap: nowrap;
 
   & .item {
     & .title {
       & .collapse_indicator {
         margin-left: -1.25em;
+        transition: transform .35s ease;
+
+        &.expanded {
+          transform: rotate(90deg);
+        }
       }
     }
 

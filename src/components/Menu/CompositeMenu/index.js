@@ -1,26 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
-import _ from 'lodash';
-import { Alert, Button, ButtonGroup, Card } from 'reactstrap';
+import { Button, ButtonGroup, Collapse, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
 import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
+import faEllipsisV from '@fortawesome/fontawesome-free-solid/faEllipsisV';
 import { getPassThroughProps } from '../../../utils/component';
-import { modularizeClassNames as cm } from '../../../utils/css';
+import { lockRootScroll, modularizeClassNames as cm } from '../../../utils/css';
+import FilterableMenu from '../FilterableMenu';
 import FA from '../../FontAwesome';
-import MenuFilter from '../MenuFilter';
-import MenuItem from '../MenuItem';
-import TreeMenu from '../TreeMenu';
 
-export default class Menu extends React.Component {
+const mediaQueryList = window.matchMedia('(min-width: 1200px)');
+
+export default class CompositeMenu extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    items: FilterableMenu.propTypes.items,
   };
 
   static defaultProps = {
     className: undefined,
-    items: undefined,
+    items: FilterableMenu.defaultProps.items,
   };
 
   constructor(props) {
@@ -29,49 +29,70 @@ export default class Menu extends React.Component {
     es6ClassBindAll(this);
 
     this.state = {
-      filteredItems: undefined,
+      isOpen: false,
     };
   }
 
-  onFilterItems(filteredItems) {
-    this.setState({ filteredItems });
+  componentDidMount() {
+    mediaQueryList.addListener(this.onMediaQueryListChange);
   }
 
-  renderMenu() {
-    const { items } = this.props;
-    const { filteredItems } = this.state;
+  componentWillUnmount() {
+    mediaQueryList.removeListener(this.onMediaQueryListChange);
+  }
 
-    if (!filteredItems) {
-      return (
-        <TreeMenu items={items} />
-      );
+  onMediaQueryListChange() {
+    this.closeMenu();
+  }
+
+  openMenu() {
+    this.setState({ isOpen: true });
+    lockRootScroll(true);
+  }
+
+  closeMenu() {
+    this.setState({ isOpen: false });
+    lockRootScroll(false);
+  }
+
+  toggleMenu() {
+    const { isOpen } = this.state;
+    if (isOpen) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
     }
-
-    if (_.isEmpty(filteredItems)) {
-      return (
-        <Alert color="secondary">검색 결과가 없습니다.</Alert>
-      );
-    }
-
-    return (
-      <TreeMenu items={filteredItems} forceExpand />
-    );
   }
 
   render() {
     const { className, items } = this.props;
+    const { isOpen } = this.state;
 
     return (
-      <Card className={cm(className, 'composite_menu')} {...getPassThroughProps(this)}>
-        <ButtonGroup className={cm('button_group')} size="sm">
-          <Button tag="a" href="/me" color="link"><FA icon={faUserCircle} /> 개인정보 수정</Button>
-          <Button tag="a" href="/logout" color="link"><FA icon={faSignOutAlt} /> 로그아웃</Button>
-        </ButtonGroup>
+      <div className={cm('composite_menu', className)} {...getPassThroughProps(this)}>
+        <Navbar className={cm('navigation_bar')} expand="xl" dark>
+          <NavbarBrand className={cm('title')} href="/">
+            <span className={cm('ridibooks')}>RIDIBOOKS</span> CMS
+          </NavbarBrand>
 
-        <MenuFilter items={items} onFilter={this.onFilterItems} />
+          <NavbarToggler className={cm('toggle_button')} onClick={this.toggleMenu}>
+            <FA icon={faEllipsisV} />
+          </NavbarToggler>
+        </Navbar>
 
-        {this.renderMenu()}
-      </Card>
+        <Collapse className={cm('content', 'd-xl-flex')} isOpen={isOpen}>
+          <ButtonGroup className={cm('button_container')} size="sm">
+            <Button className={cm('button')} href="/me" tag="a" color="link">
+              <FA icon={faUserCircle} /> 개인정보 수정
+            </Button>
+            <Button className={cm('button')} href="/logout" tag="a" color="link">
+              <FA icon={faSignOutAlt} /> 로그아웃
+            </Button>
+          </ButtonGroup>
+
+          <FilterableMenu items={items} />
+        </Collapse>
+      </div>
     );
   }
 }

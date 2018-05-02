@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import * as recompose from 'recompose';
-import { wrapWithCssModule } from '../../higherOrderComponents';
+import { addClassName, wrapWithCssModule } from '../../higherOrderComponents';
+import { modularizeClassNames as cm } from '../../utils/css';
 import propsMapper from './propsMapper';
 import CompositeMenu from './CompositeMenu';
 
@@ -16,6 +17,7 @@ const propTypes = {
 
 export default recompose.compose(
   wrapWithCssModule(),
+  addClassName(cm('menu')),
   recompose.setPropTypes(propTypes),
   recompose.mapProps(propsMapper),
 )(CompositeMenu);

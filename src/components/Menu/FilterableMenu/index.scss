@@ -1,0 +1,17 @@
+.filterable_menu {
+  @import "../MenuFilter/index";
+  @import "../TreeMenu/index";
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  & > *:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+
+  & .tree_menu {
+    flex: 1;
+    overflow: scroll;
+  }
+}

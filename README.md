@@ -52,6 +52,22 @@ const Example = (props) => {
 </html>
 ```
 
+> **Note:**
+> After *cms-ui* is loaded, following CSS is injected automatically for the layout.
+> This is **not configurable for now**.
+> If this causes any problem, please notify us.
+> ```css
+> body {
+>   margin: 3.5rem 0 0 0;
+> }
+>
+> @media (min-width: 1200px) {
+>   body {
+>     margin: 0 0 0 17rem;
+>   }
+> }
+> ```
+
 ## Development
 
 ### Setup

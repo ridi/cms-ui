@@ -1,16 +1,126 @@
 .composite_menu {
-  @import "../MenuFilter/index";
-  @import "../TreeMenu/index";
-  display: inline-block;
-  min-width: 16rem;
-  padding: 1rem;
+  @import "../FilterableMenu/index";
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  color: $white;
+  background-color: darken($dark, 10%);
 
-  & > *:not(:last-child) {
-    margin-bottom: .5rem;
+  & .navigation_bar {
+    flex-shrink: 0;
+    background-color: rgba($primary, .80);
+    align-items: stretch;
+    padding: 0;
+
+    & > * {
+      padding: 1rem;
+      line-height: 1;
+      border-radius: 0;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .05);
+      }
+    }
+
+    & .title {
+      font-size: 1.5rem;
+
+      & .ridibooks {
+        font-weight: bold;
+      }
+    }
+
+    & .toggle_button {
+      border: none;
+      color: $white;
+    }
   }
 
-  & .button_group {
-    display: flex;
-    justify-content: center;
+  & .content {
+    flex: 1;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0 1rem;
+
+    &.show {
+      display: flex;
+    }
+
+    & .button_container {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      padding: .5rem 0;
+
+      & .button {
+        color: rgba($white, .65);
+        text-decoration: none;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+
+    & .filterable_menu {
+      flex: 1;
+
+      & .menu_filter {
+        & .input {
+          color: inherit;
+          background: rgba($black, .25);
+          border-color: rgba($white, .25);
+        }
+      }
+
+      & .alert {
+        color: inherit;
+        background: none;
+        border: none;
+        padding: .5rem;
+        font-size: .9rem;
+      }
+
+      & .tree_menu {
+        margin: 0 -1rem;
+        padding-bottom: 1rem;
+
+        & .item {
+          & .title {
+            color: rgba($white, .65);
+
+            &:hover {
+              color: $white;
+              background-color: rgba($white, .05);
+            }
+
+            &:before {
+              content: "";
+              margin: .125rem;
+            }
+          }
+
+          &.leaf {
+            & .title {
+              color: rgba($white, .5);
+
+              &:hover {
+                color: $white;
+              }
+            }
+          }
+
+          &.active {
+            & .title {
+              color: $white;
+              background-color: rgba($primary, .5);
+            }
+          }
+        }
+      }
+
+    }
   }
 }

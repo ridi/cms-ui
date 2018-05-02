@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
-import faCaretDown from '@fortawesome/fontawesome-free-solid/faCaretDown';
 import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
@@ -30,7 +29,7 @@ export default class TreeMenu extends React.Component {
   };
 
   static defaultState = {
-    expanded: {},
+    expandedItemIds: {},
   };
 
   static stateStorage = sessionStorage;
@@ -77,11 +76,11 @@ export default class TreeMenu extends React.Component {
       return;
     }
 
-    const { expanded } = this.state;
+    const { expandedItemIds } = this.state;
     this.setState({
-      expanded: {
-        ...expanded,
-        [item.id]: !expanded[item.id],
+      expandedItemIds: {
+        ...expandedItemIds,
+        [item.id]: !expandedItemIds[item.id],
       },
     });
   }
@@ -105,25 +104,25 @@ export default class TreeMenu extends React.Component {
     }
 
     const { forceExpand } = this.props;
-    const { expanded } = this.state;
+    const { expandedItemIds } = this.state;
 
-    const isOpen = forceExpand || expanded[item.id];
+    const expanded = forceExpand || expandedItemIds[item.id];
     return (
       <MenuItem
         key={key}
-        className={cm(`depth_${item.depth}`)}
+        className={cm(`depth_${item.depth}`, { expanded })}
         item={{
           ...item,
           title: (
             <React.Fragment>
-              <FA className={cm('collapse_indicator')} icon={isOpen ? faCaretDown : faCaretRight} />
+              <FA className={cm('collapse_indicator', { expanded })} icon={faCaretRight} />
               {item.title}
             </React.Fragment>
           ),
         }}
         onItemClick={this.onItemClick}
       >
-        <Collapse isOpen={isOpen}>
+        <Collapse isOpen={expanded}>
           <Nav vertical>
             {_.map(item.children, this.renderItemTree)}
           </Nav>

@@ -2,22 +2,10 @@
   & .title {
     cursor: pointer;
     padding: .25rem 0;
-    font-size: .8rem;
-    border-radius: $border-radius;
+    font-size: .9rem;
 
     &:not([href]) {
-      font-size: .9rem;
       font-weight: bold;
-      color: rgba(0, 0, 0, .65);
-
-      &:hover {
-        color: rgba(0, 0, 0, .85);
-      }
-    }
-
-    &:hover {
-      background-color: rgba(0, 0, 0, .05);
     }
   }
 }
-
