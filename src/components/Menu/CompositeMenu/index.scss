@@ -5,11 +5,11 @@
   justify-content: flex-start;
   align-items: stretch;
   color: $white;
-  background-color: darken($dark, 10%);
+  background-color: rgba(darken($dark, 10%), .95);
 
   & .navigation_bar {
     flex-shrink: 0;
-    background-color: rgba($primary, .80);
+    background-color: darken($primary, 10%);
     align-items: stretch;
     padding: 0;
 

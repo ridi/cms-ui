@@ -6,7 +6,7 @@ import faUserCircle from '@fortawesome/fontawesome-free-solid/faUserCircle';
 import faSignOutAlt from '@fortawesome/fontawesome-free-solid/faSignOutAlt';
 import faEllipsisV from '@fortawesome/fontawesome-free-solid/faEllipsisV';
 import { getPassThroughProps } from '../../../utils/component';
-import { lockRootScroll, modularizeClassNames as cm } from '../../../utils/css';
+import { modularizeClassNames as cm } from '../../../utils/css';
 import FilterableMenu from '../FilterableMenu';
 import FA from '../../FontAwesome';
 
@@ -47,12 +47,10 @@ export default class CompositeMenu extends React.Component {
 
   openMenu() {
     this.setState({ isOpen: true });
-    lockRootScroll(true);
   }
 
   closeMenu() {
     this.setState({ isOpen: false });
-    lockRootScroll(false);
   }
 
   toggleMenu() {
