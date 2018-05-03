@@ -1,12 +1,4 @@
 html {
-  &.no_scroll {
-    overflow: hidden;
-
-    & body {
-      overflow: hidden;
-    }
-  }
-
   & body {
     margin: 3.5rem 0 0 0;
   }

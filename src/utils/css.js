@@ -13,8 +13,3 @@ export const setGlobalCssModule = (cssModule, rootModuleName) => {
 };
 
 export const modularizeClassNames = (...args) => Util.mapToCssModules(cn(...args));
-
-export const lockRootScroll = (lock) => {
-  const noScrollClassName = modularizeClassNames('no_scroll');
-  document.documentElement.classList.toggle(noScrollClassName, lock);
-};
