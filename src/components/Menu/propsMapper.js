@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { buildItemTrees } from './utils/item';
 
 function mapItemProperties(items) {
   return _.map(items, item => ({
@@ -10,38 +11,10 @@ function mapItemProperties(items) {
   }));
 }
 
-function mapItemsToItemTrees(items) {
-  const root = { id: 0, depth: -1, children: [] };
-  const parents = [root];
-
-  _.forEach(items, (item, index) => {
-    const parent = (() => {
-      while (_.last(parents).depth >= item.depth) {
-        parents.pop();
-      }
-      return _.last(parents);
-    })();
-
-    const itemWithChildren = { ...item, children: [] };
-    parent.children.push(itemWithChildren);
-
-    if (item === _.last(items)) {
-      return;
-    }
-
-    if (items[index + 1].depth > item.depth) {
-      delete itemWithChildren.href;
-      parents.push(itemWithChildren);
-    }
-  });
-
-  return root.children;
-}
-
 export function mapItems(items) {
   return _.flow([
     mapItemProperties,
-    mapItemsToItemTrees,
+    buildItemTrees,
   ])(items);
 }
 

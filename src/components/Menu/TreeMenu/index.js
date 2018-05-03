@@ -6,6 +6,8 @@ import { Collapse, Nav } from 'reactstrap';
 import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
+import { mapKeyValues } from '../../../utils/collection';
+import { filterItems, flattenItemTrees } from '../utils/item';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
@@ -60,6 +62,14 @@ export default class TreeMenu extends React.Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', this.onHashChange, false);
+
+    const { items } = this.props;
+    this.expandActiveItems(items);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { items } = nextProps;
+    this.expandActiveItems(items);
   }
 
   componentWillUnmount() {
@@ -89,6 +99,20 @@ export default class TreeMenu extends React.Component {
     super.setState(state, () => {
       TreeMenu.storeState(this.state);
       callback();
+    });
+  }
+
+  expandActiveItems(items) {
+    const activeItemTrees = filterItems(items, item => isActiveUrl(item.href));
+    const activeItems = flattenItemTrees(activeItemTrees);
+    const activeItemIds = mapKeyValues(activeItems, item => ([item.id, true]));
+
+    const { expandedItemIds } = this.state;
+    this.setState({
+      expandedItemIds: {
+        ...expandedItemIds,
+        ...activeItemIds,
+      },
     });
   }
 
