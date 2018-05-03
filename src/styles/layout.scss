@@ -17,6 +17,7 @@ html {
     top: 0;
     right: 0;
     max-height: 100%;
+    z-index: 10000;
   }
 
   @media (min-width: 1200px) {
