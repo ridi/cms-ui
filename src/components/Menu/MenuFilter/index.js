@@ -6,6 +6,7 @@ import { Button, Input } from 'reactstrap';
 import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
+import { filterItems } from '../utils/item';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
@@ -21,34 +22,6 @@ export default class MenuFilter extends React.Component {
     items: undefined,
     onFilter: () => {},
   };
-
-  static filterItems(items, keywords) {
-    const match = item => _.every(keywords, keyword => (
-      _.includes(_.toLower(item.title), _.toLower(keyword))
-    ));
-
-    const mappedItems = _.map(items, (item) => {
-      if (_.isEmpty(item.children)) {
-        if (match(item)) {
-          return item;
-        }
-        return undefined;
-      }
-
-      const filteredChildren = MenuFilter.filterItems(item.children, keywords);
-
-      if (_.isEmpty(filteredChildren)) {
-        return undefined;
-      }
-
-      return {
-        ...item,
-        children: filteredChildren,
-      };
-    });
-
-    return _.filter(mappedItems, _.identity);
-  }
 
   constructor(props) {
     super(props);
@@ -72,7 +45,12 @@ export default class MenuFilter extends React.Component {
       return;
     }
 
-    const filteredItems = MenuFilter.filterItems(items, keywords);
+    const match = item => _.every(keywords, keyword => (
+      _.includes(_.toLower(item.title), _.toLower(keyword))
+    ));
+
+    const filteredItems = filterItems(items, match);
+
     onFilter(filteredItems);
   }
 
