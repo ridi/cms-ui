@@ -27,3 +27,16 @@ export function filterItems(items, match) {
 
   return _.filter(mappedItems, _.identity);
 }
+
+export function flattenItemTrees(rootItems) {
+  const itemsHaveChildren = _.flatMapDeep(rootItems, item => ([
+    item,
+    flattenItemTrees(item.children),
+  ]));
+
+  return _.map(itemsHaveChildren, (itemHasChildren) => {
+    const item = { ...itemHasChildren };
+    delete item.children;
+    return item;
+  });
+}
