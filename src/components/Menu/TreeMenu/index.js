@@ -14,7 +14,8 @@ import MenuItem from '../MenuItem';
 const isActiveUrl = (url) => {
   const a = document.createElement('a');
   a.href = url;
-  return a.href === window.location.href;
+  const trimCharacters = '/ ';
+  return _.trim(a.href, trimCharacters) === _.trim(window.location.href, trimCharacters);
 };
 
 export default class TreeMenu extends React.Component {
