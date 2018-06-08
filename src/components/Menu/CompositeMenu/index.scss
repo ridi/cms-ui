@@ -39,7 +39,7 @@
 
   & .content {
     min-height: 0;
-    flex: 1;
+    flex: 1 1 auto;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: stretch;
@@ -67,7 +67,7 @@
 
     & .filterable_menu {
       min-height: 0;
-      flex: 1;
+      flex: 1 1 auto;
 
       & .menu_filter {
         & .input {
