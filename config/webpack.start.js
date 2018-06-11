@@ -11,7 +11,7 @@ const baseOptions = {
   plugins: [
     new WebpackShellPlugin({
       onBuildEnd: {
-        scripts: ['npm start --prefix example'],
+        scripts: ['npm start --prefix examples/umd'],
       },
     }),
   ],

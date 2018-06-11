@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@ridi/cms-sdk": "^2.1.0",
-    "@ridi/cms-ui": "..",
+    "@ridi/cms-ui": "../..",
     "babel-polyfill": "^6.26.0",
     "moment": "^2.21.0",
     "react": "^16.2.0",
