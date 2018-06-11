@@ -46,14 +46,18 @@ const Example = (props) => {
     <div id="menu_container"></div>
 
     <script>
-      const { createElement, render, Menu } = CmsUi;
+      (function renderMenu() {
+        var { createElement, render, Menu } = CmsUi;
 
-      const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API.
+        // Get menu data from cms-sdk via server-side rendering or custom API.
+        var menuItems = ...
 
-      const menuElement = createElement(Menu, { items: menuItems });
-      const menuContainer = document.getElementById('menu_container');
+        var menuElement = createElement(Menu, { items: menuItems });
+        var menuContainer = document.getElementById('menu_container');
 
-      render(menuElement, menuContainer); // Make sure to container DOM element is loaded before call render function.
+        // Make sure to container DOM element is loaded before call render function.
+        render(menuElement, menuContainer);
+      })();
     </script>
   </body>
 </html>
