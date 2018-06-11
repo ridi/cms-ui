@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "react-app-rewired start"
+    "start": "react-scripts start"
   },
   "dependencies": {
     "@ridi/cms-sdk": "^2.1.0",
@@ -15,9 +15,6 @@
     "react-lorem-component": "^0.13.0"
   },
   "devDependencies": {
-    "react-app-rewire-eslint": "^0.2.3",
-    "react-app-rewired": "^1.5.0",
-    "react-dev-utils": "^5.0.0",
     "react-scripts": "1.1.1"
   }
 }
