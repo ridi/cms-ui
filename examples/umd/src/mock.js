@@ -1,20 +1,4 @@
-import moment from 'moment';
-import { CmsSdk } from '@ridi/cms-sdk';
-import * as mock from '.';
-
-const CMS_RPC_PATH = process.env.REACT_APP_CMS_RPC_PATH;
-
-const sdk = CMS_RPC_PATH ? (
-  new CmsSdk({ cmsRpcUrl: `${window.location.origin}${CMS_RPC_PATH}` })
-) : (
-  undefined
-);
-
 export const getMenuItems = async () => {
-  if (sdk) {
-    return sdk.getAuthService().getAdminMenu();
-  }
-
   let nextId = 1;
   let nextOrder = 0;
 
@@ -31,10 +15,7 @@ export const getMenuItems = async () => {
       menu_url: `#menu_${id}`,
       menu_deep: depth,
       menu_order: order,
-      is_use: true,
-      is_show: true,
       is_newtab: false,
-      reg_date: moment().format('YYYY-MM-DD hh:mm:ss'),
     };
   }
 
@@ -56,5 +37,3 @@ export const getMenuItems = async () => {
 
   return createHighOrderMenuItems(0, 3);
 };
-
-export default mock;

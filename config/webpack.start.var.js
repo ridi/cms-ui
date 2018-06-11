@@ -11,14 +11,14 @@ const baseOptions = {
   plugins: [
     new WebpackShellPlugin({
       onBuildEnd: {
-        scripts: ['npm start --prefix example'],
+        scripts: ['npm start --prefix examples/var'],
       },
     }),
   ],
 };
 
 const variants = {
-  target: _.split(process.env.TARGET || 'umd', ','),
+  target: _.split(process.env.TARGET || 'var', ','),
 };
 
 module.exports = createVariants(baseOptions, variants, createWebpackConfig);

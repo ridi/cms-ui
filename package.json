@@ -7,7 +7,8 @@
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
   "scripts": {
-    "start": "parallel-webpack --config=config/webpack.start.js --watch",
+    "start:umd": "parallel-webpack --config=config/webpack.start.umd.js --watch",
+    "start:var": "parallel-webpack --config=config/webpack.start.var.js --watch",
     "watch": "parallel-webpack --config=config/webpack.dev.js --watch",
     "build": "parallel-webpack --config=config/webpack.prod.js"
   },

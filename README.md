@@ -9,8 +9,13 @@ This project provides UI components to be used with [*Ridibooks CMS SDK*](https:
 ## Getting Started
 
 ### Install
+Install via npm:
 ```bash
 npm install --save @ridi/cms-ui
+```
+Or use CDN:
+```html
+<script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
 ```
 
 ### Usage
@@ -35,20 +40,24 @@ const Example = (props) => {
 <html>
   <head>
     <!-- Load library in <head> to avoid flickering. -->
-    <script src="path/to/cms-ui/dist/cms-ui.var.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
   </head>
   <body>
     <div id="menu_container"></div>
 
     <script>
-      const { createElement, render, Menu } = CmsUi;
+      (function renderMenu() {
+        var { createElement, render, Menu } = CmsUi;
 
-      const menuItems = ... // get menu data from cms-sdk via server-side rendering or custom API.
+        // Get menu data from cms-sdk via server-side rendering or custom API.
+        var menuItems = ...
 
-      const menuElement = createElement(Menu, { items: menuItems });
-      const menuContainer = document.getElementById('menu_container');
+        var menuElement = createElement(Menu, { items: menuItems });
+        var menuContainer = document.getElementById('menu_container');
 
-      render(menuElement, menuContainer); // Make sure to container DOM element is loaded before call render function.
+        // Make sure to container DOM element is loaded before call render function.
+        render(menuElement, menuContainer);
+      })();
     </script>
   </body>
 </html>
@@ -80,8 +89,15 @@ make install
 
 ### Run Example App
 To compile and run example app, please run:
+
+#### React
 ```bash
-make start
+make start-umd
+```
+
+#### Browser
+```bash
+make start-var
 ```
 
 ### Build

@@ -1,0 +1,17 @@
+{
+  "name": "@ridi/cms-ui-example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-lorem-component": "^0.13.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.1"
+  }
+}
