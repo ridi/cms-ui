@@ -9,8 +9,13 @@ This project provides UI components to be used with [*Ridibooks CMS SDK*](https:
 ## Getting Started
 
 ### Install
+Install via npm:
 ```bash
 npm install --save @ridi/cms-ui
+```
+Or use CDN:
+```html
+<script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
 ```
 
 ### Usage
@@ -35,7 +40,7 @@ const Example = (props) => {
 <html>
   <head>
     <!-- Load library in <head> to avoid flickering. -->
-    <script src="path/to/cms-ui/dist/cms-ui.var.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
   </head>
   <body>
     <div id="menu_container"></div>
@@ -80,8 +85,15 @@ make install
 
 ### Run Example App
 To compile and run example app, please run:
+
+#### React
 ```bash
-make start
+make start-umd
+```
+
+#### Browser
+```bash
+make start-var
 ```
 
 ### Build

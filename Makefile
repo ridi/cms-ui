@@ -1,4 +1,4 @@
-.PHONY: install start build publish clean
+.PHONY: install start-umd start-var build publish clean
 
 all: install build
 
@@ -7,8 +7,11 @@ install:
 	cd examples/umd && npm install
 	cd examples/var && npm install
 
-start:
-	npm start
+start-umd:
+	npm run start:umd
+
+start-var:
+	npm run start:var
 
 build:
 	npm run build
