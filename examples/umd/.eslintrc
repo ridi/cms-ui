@@ -1,6 +1,0 @@
-{
-  "extends": "@ridi",
-  "rules": {
-    "react/jsx-filename-extension": "off"
-  }
-}
