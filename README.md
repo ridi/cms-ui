@@ -15,7 +15,7 @@ npm install --save @ridi/cms-ui
 ```
 Or use CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@0.3/dist/cms-ui.var.js"></script>
 ```
 
 ### Usage
@@ -40,7 +40,7 @@ const Example = (props) => {
 <html>
   <head>
     <!-- Load library in <head> to avoid flickering. -->
-    <script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@^0.3/dist/cms-ui.var.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@0.3/dist/cms-ui.var.js"></script>
   </head>
   <body>
     <div id="menu_container"></div>
