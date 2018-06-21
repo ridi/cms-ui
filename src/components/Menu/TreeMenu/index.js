@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Collapse, Nav } from 'reactstrap';
-import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import { mapKeyValues } from '../../../utils/collection';
@@ -19,22 +19,6 @@ const isActiveUrl = (url) => {
 };
 
 export default class TreeMenu extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
-    forceExpand: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    items: undefined,
-    forceExpand: false,
-  };
-
-  static defaultState = {
-    expandedItemIds: {},
-  };
-
   static stateStorage = sessionStorage;
   static STATE_STORAGE_KEY = 'CmsUi.Menu.TreeMenu.state';
 
@@ -50,13 +34,25 @@ export default class TreeMenu extends React.Component {
     TreeMenu.stateStorage.setItem(TreeMenu.STATE_STORAGE_KEY, JSON.stringify(state));
   }
 
+  static propTypes = {
+    className: PropTypes.string,
+    items: PropTypes.arrayOf(MenuItem.propTypes.item),
+    forceExpand: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    className: undefined,
+    items: undefined,
+    forceExpand: false,
+  };
+
   constructor(props) {
     super(props);
 
     es6ClassBindAll(this);
 
     this.state = {
-      ...TreeMenu.defaultState,
+      expandedItemIds: {},
       ...TreeMenu.restoreState(),
     };
   }

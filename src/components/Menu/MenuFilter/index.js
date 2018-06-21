@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
 import { Button, Input } from 'reactstrap';
-import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
 import { filterItems } from '../utils/item';
