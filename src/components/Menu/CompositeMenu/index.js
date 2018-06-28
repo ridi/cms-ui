@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import es6ClassBindAll from 'es6-class-bind-all';
-import { Button, ButtonGroup, Collapse, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+import {
+  Button,
+  ButtonGroup,
+  Collapse,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+} from 'reactstrap';
 import { faEllipsisV, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
@@ -68,7 +75,10 @@ export default class CompositeMenu extends React.Component {
       <div className={cm('composite_menu', className)} {...getPassThroughProps(this)}>
         <Navbar className={cm('navigation_bar')} expand="xl" dark>
           <NavbarBrand className={cm('title')} href="/">
-            <span className={cm('ridibooks')}>RIDIBOOKS</span> CMS
+            <span className={cm('ridibooks')}>
+              RIDIBOOKS
+            </span>
+            CMS
           </NavbarBrand>
 
           <NavbarToggler className={cm('toggle_button')} onClick={this.toggleMenu}>
@@ -79,10 +89,12 @@ export default class CompositeMenu extends React.Component {
         <Collapse className={cm('content', 'd-xl-flex')} isOpen={isOpen}>
           <ButtonGroup className={cm('button_container')} size="sm">
             <Button className={cm('button')} href="/me" tag="a" color="link">
-              <FA icon={faUserCircle} /> 개인정보 수정
+              <FA icon={faUserCircle} />
+              개인정보 수정
             </Button>
             <Button className={cm('button')} href="/logout" tag="a" color="link">
-              <FA icon={faSignOutAlt} /> 로그아웃
+              <FA icon={faSignOutAlt} />
+              로그아웃
             </Button>
           </ButtonGroup>
 

@@ -45,7 +45,9 @@ export default class FilterableMenu extends React.Component {
 
     if (_.isEmpty(filteredItems)) {
       return (
-        <Alert className={cm('alert')}>검색 결과가 없습니다.</Alert>
+        <Alert className={cm('alert')}>
+          검색 결과가 없습니다.
+        </Alert>
       );
     }
 
