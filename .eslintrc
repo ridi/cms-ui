@@ -18,6 +18,7 @@
     }
   },
   "rules": {
+    "react/forbid-foreign-prop-types": "off",
     "react/jsx-filename-extension": "off"
   }
 }
