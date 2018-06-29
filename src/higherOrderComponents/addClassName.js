@@ -1,4 +1,10 @@
-import { compose, mapProps, setDisplayName, setPropTypes, wrapDisplayName } from 'recompose';
+import {
+  compose,
+  mapProps,
+  setDisplayName,
+  setPropTypes,
+  wrapDisplayName,
+} from 'recompose';
 
 function mapClassName(className = '') {
   return (props) => {

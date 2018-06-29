@@ -20,6 +20,7 @@ const isActiveUrl = (url) => {
 
 export default class TreeMenu extends React.Component {
   static stateStorage = sessionStorage;
+
   static STATE_STORAGE_KEY = 'CmsUi.Menu.TreeMenu.state';
 
   static restoreState() {
