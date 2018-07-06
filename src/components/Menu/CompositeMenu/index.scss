@@ -25,6 +25,7 @@
 
     & .title {
       display: block;
+      margin: 0;
       font-size: 1.5rem;
 
       & .ridibooks {
@@ -124,7 +125,18 @@
           }
         }
       }
+    }
+  }
 
+  &.expanded {
+    & .navigation_bar {
+      & .title {
+        flex: 1;
+      }
+
+      & .toggle_button {
+        display: none;
+      }
     }
   }
 }

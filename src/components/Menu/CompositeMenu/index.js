@@ -35,6 +35,7 @@ export default class CompositeMenu extends React.Component {
 
     this.state = {
       isOpen: false,
+      expanded: mediaQueryList.matches,
     };
   }
 
@@ -46,8 +47,14 @@ export default class CompositeMenu extends React.Component {
     mediaQueryList.removeListener(this.onMediaQueryListChange);
   }
 
-  onMediaQueryListChange() {
+  onMediaQueryListChange(e) {
     this.closeMenu();
+
+    if (e.matches) {
+      this.setState({ expanded: true });
+    } else {
+      this.setState({ expanded: false });
+    }
   }
 
   openMenu() {
@@ -69,10 +76,10 @@ export default class CompositeMenu extends React.Component {
 
   render() {
     const { className, items } = this.props;
-    const { isOpen } = this.state;
+    const { isOpen, expanded } = this.state;
 
     return (
-      <div className={cm('composite_menu', className)} {...getPassThroughProps(this)}>
+      <div className={cm('composite_menu', className, { expanded })} {...getPassThroughProps(this)}>
         <Navbar className={cm('navigation_bar')} expand="xl" dark>
           <NavbarBrand className={cm('title')} href="/">
             <span className={cm('ridibooks')}>
