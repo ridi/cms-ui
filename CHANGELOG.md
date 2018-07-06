@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.5] - 2018-07-06
+### Changed
+- Change menu's z-index | b5c649f
+- Let menu title cover entire nav in large screen | 5a3e051
+- Use node 10 for build | ec85980 3459ddb
+- Update @fortawesome/react-fontawesome (#40)
+- Update eslint (#42)
+
 ## [0.3.4] - 2018-06-11
 ### Added
 - Add an example for non-react usage (#38)
