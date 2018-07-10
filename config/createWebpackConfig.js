@@ -17,7 +17,6 @@ module.exports = (options) => {
 
   const cssLoaderOptions = {
     sourceMap,
-    minimize: isProduction,
   };
 
   const postcssLoaderOptions = {
