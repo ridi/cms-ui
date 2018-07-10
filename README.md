@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/ridi/cms-ui.svg?branch=master)](https://travis-ci.org/ridi/cms-ui)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ridi/cms-ui.svg)](https://greenkeeper.io/)
 
-This project provides UI components to be used with [*Ridibooks CMS SDK*](https://github.com/ridi/cms-sdk).
+UI components for [*Ridibooks CMS SDK*](https://github.com/ridi/cms-sdk).
 
 ## Getting Started
 
