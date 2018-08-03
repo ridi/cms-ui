@@ -68,12 +68,12 @@ const Example = (props) => {
 > This is **not configurable for now**.
 > If this causes any problem, please notify us.
 > ```css
-> body {
+> html {
 >   margin: 3.5rem 0 0 0;
 > }
 >
 > @media (min-width: 1200px) {
->   body {
+>   html {
 >     margin: 0 0 0 17rem;
 >   }
 > }
