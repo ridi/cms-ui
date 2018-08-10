@@ -6,6 +6,10 @@
   "repository": "https://github.com/ridi/cms-ui.git",
   "author": "Ridibooks Performance Team <performance.team@ridi.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
   "scripts": {
     "start:umd": "parallel-webpack --config=config/webpack.start.umd.js --watch",
     "start:var": "parallel-webpack --config=config/webpack.start.var.js --watch",
