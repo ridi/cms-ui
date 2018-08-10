@@ -46,7 +46,7 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.0",
-    "postcss-loader": "^2.1.3",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.22.1",
     "webpack": "^4.12.0",
