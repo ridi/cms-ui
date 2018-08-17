@@ -2,7 +2,7 @@ var menus = [
   {
     'id': 1,
     'menu_title': 'Menu 1 (Depth: 0)',
-    'menu_url': '#menu_1',
+    'menu_url': '/menu_1',
     'menu_deep': 0,
     'menu_order': 0,
     'is_newtab': false,
@@ -10,7 +10,7 @@ var menus = [
   {
     'id': 2,
     'menu_title': 'Menu 2 (Depth: 0)',
-    'menu_url': '#menu_2',
+    'menu_url': '/menu_2',
     'menu_deep': 0,
     'menu_order': 1,
     'is_newtab': false,
@@ -18,7 +18,7 @@ var menus = [
   {
     'id': 3,
     'menu_title': 'Menu 3 (Depth: 1)',
-    'menu_url': '#menu_3',
+    'menu_url': '/menu_3',
     'menu_deep': 1,
     'menu_order': 2,
     'is_newtab': false,
@@ -26,7 +26,7 @@ var menus = [
   {
     'id': 4,
     'menu_title': 'Menu 4 (Depth: 1)',
-    'menu_url': '#menu_4',
+    'menu_url': '/menu_4',
     'menu_deep': 1,
     'menu_order': 3,
     'is_newtab': false,
@@ -34,7 +34,7 @@ var menus = [
   {
     'id': 5,
     'menu_title': 'Menu 5 (Depth: 2)',
-    'menu_url': '#menu_5',
+    'menu_url': '/menu_5',
     'menu_deep': 2,
     'menu_order': 4,
     'is_newtab': false,
@@ -42,7 +42,7 @@ var menus = [
   {
     'id': 6,
     'menu_title': 'Menu 6 (Depth: 2)',
-    'menu_url': '#menu_6',
+    'menu_url': '/menu_6',
     'menu_deep': 2,
     'menu_order': 5,
     'is_newtab': false,
@@ -50,7 +50,7 @@ var menus = [
   {
     'id': 7,
     'menu_title': 'Menu 7 (Depth: 3)',
-    'menu_url': '#menu_7',
+    'menu_url': '/menu_7',
     'menu_deep': 3,
     'menu_order': 6,
     'is_newtab': false,
@@ -58,7 +58,7 @@ var menus = [
   {
     'id': 8,
     'menu_title': 'Menu 8 (Depth: 3)',
-    'menu_url': '#menu_8',
+    'menu_url': '/menu_8',
     'menu_deep': 3,
     'menu_order': 7,
     'is_newtab': false,
@@ -66,7 +66,7 @@ var menus = [
   {
     'id': 9,
     'menu_title': 'Menu 9 (Depth: 3)',
-    'menu_url': '#menu_9',
+    'menu_url': '/menu_9',
     'menu_deep': 3,
     'menu_order': 8,
     'is_newtab': false,
@@ -74,7 +74,7 @@ var menus = [
   {
     'id': 10,
     'menu_title': 'Menu 10 (Depth: 2)',
-    'menu_url': '#menu_10',
+    'menu_url': '/menu_10',
     'menu_deep': 2,
     'menu_order': 9,
     'is_newtab': false,
@@ -82,7 +82,7 @@ var menus = [
   {
     'id': 11,
     'menu_title': 'Menu 11 (Depth: 3)',
-    'menu_url': '#menu_11',
+    'menu_url': '/menu_11',
     'menu_deep': 3,
     'menu_order': 10,
     'is_newtab': false,
@@ -90,7 +90,7 @@ var menus = [
   {
     'id': 12,
     'menu_title': 'Menu 12 (Depth: 3)',
-    'menu_url': '#menu_12',
+    'menu_url': '/menu_12',
     'menu_deep': 3,
     'menu_order': 11,
     'is_newtab': false,
@@ -98,7 +98,7 @@ var menus = [
   {
     'id': 13,
     'menu_title': 'Menu 13 (Depth: 3)',
-    'menu_url': '#menu_13',
+    'menu_url': '/menu_13',
     'menu_deep': 3,
     'menu_order': 12,
     'is_newtab': false,
@@ -106,7 +106,7 @@ var menus = [
   {
     'id': 14,
     'menu_title': 'Menu 14 (Depth: 1)',
-    'menu_url': '#menu_14',
+    'menu_url': '/menu_14',
     'menu_deep': 1,
     'menu_order': 13,
     'is_newtab': false,
@@ -114,7 +114,7 @@ var menus = [
   {
     'id': 15,
     'menu_title': 'Menu 15 (Depth: 2)',
-    'menu_url': '#menu_15',
+    'menu_url': '/menu_15',
     'menu_deep': 2,
     'menu_order': 14,
     'is_newtab': false,
@@ -122,7 +122,7 @@ var menus = [
   {
     'id': 16,
     'menu_title': 'Menu 16 (Depth: 2)',
-    'menu_url': '#menu_16',
+    'menu_url': '/menu_16',
     'menu_deep': 2,
     'menu_order': 15,
     'is_newtab': false,
@@ -130,7 +130,7 @@ var menus = [
   {
     'id': 17,
     'menu_title': 'Menu 17 (Depth: 3)',
-    'menu_url': '#menu_17',
+    'menu_url': '/menu_17',
     'menu_deep': 3,
     'menu_order': 16,
     'is_newtab': false,
@@ -138,7 +138,7 @@ var menus = [
   {
     'id': 18,
     'menu_title': 'Menu 18 (Depth: 3)',
-    'menu_url': '#menu_18',
+    'menu_url': '/menu_18',
     'menu_deep': 3,
     'menu_order': 17,
     'is_newtab': false,
@@ -146,7 +146,7 @@ var menus = [
   {
     'id': 19,
     'menu_title': 'Menu 19 (Depth: 3)',
-    'menu_url': '#menu_19',
+    'menu_url': '/menu_19',
     'menu_deep': 3,
     'menu_order': 18,
     'is_newtab': false,
@@ -154,7 +154,7 @@ var menus = [
   {
     'id': 20,
     'menu_title': 'Menu 20 (Depth: 2)',
-    'menu_url': '#menu_20',
+    'menu_url': '/menu_20',
     'menu_deep': 2,
     'menu_order': 19,
     'is_newtab': false,
@@ -162,7 +162,7 @@ var menus = [
   {
     'id': 21,
     'menu_title': 'Menu 21 (Depth: 3)',
-    'menu_url': '#menu_21',
+    'menu_url': '/menu_21',
     'menu_deep': 3,
     'menu_order': 20,
     'is_newtab': false,
@@ -170,7 +170,7 @@ var menus = [
   {
     'id': 22,
     'menu_title': 'Menu 22 (Depth: 3)',
-    'menu_url': '#menu_22',
+    'menu_url': '/menu_22',
     'menu_deep': 3,
     'menu_order': 21,
     'is_newtab': false,
@@ -178,7 +178,7 @@ var menus = [
   {
     'id': 23,
     'menu_title': 'Menu 23 (Depth: 3)',
-    'menu_url': '#menu_23',
+    'menu_url': '/menu_23',
     'menu_deep': 3,
     'menu_order': 22,
     'is_newtab': false,
@@ -186,7 +186,7 @@ var menus = [
   {
     'id': 24,
     'menu_title': 'Menu 24 (Depth: 0)',
-    'menu_url': '#menu_24',
+    'menu_url': '/menu_24',
     'menu_deep': 0,
     'menu_order': 23,
     'is_newtab': false,
@@ -194,7 +194,7 @@ var menus = [
   {
     'id': 25,
     'menu_title': 'Menu 25 (Depth: 1)',
-    'menu_url': '#menu_25',
+    'menu_url': '/menu_25',
     'menu_deep': 1,
     'menu_order': 24,
     'is_newtab': false,
@@ -202,7 +202,7 @@ var menus = [
   {
     'id': 26,
     'menu_title': 'Menu 26 (Depth: 1)',
-    'menu_url': '#menu_26',
+    'menu_url': '/menu_26',
     'menu_deep': 1,
     'menu_order': 25,
     'is_newtab': false,
@@ -210,7 +210,7 @@ var menus = [
   {
     'id': 27,
     'menu_title': 'Menu 27 (Depth: 2)',
-    'menu_url': '#menu_27',
+    'menu_url': '/menu_27',
     'menu_deep': 2,
     'menu_order': 26,
     'is_newtab': false,
@@ -218,7 +218,7 @@ var menus = [
   {
     'id': 28,
     'menu_title': 'Menu 28 (Depth: 2)',
-    'menu_url': '#menu_28',
+    'menu_url': '/menu_28',
     'menu_deep': 2,
     'menu_order': 27,
     'is_newtab': false,
@@ -226,7 +226,7 @@ var menus = [
   {
     'id': 29,
     'menu_title': 'Menu 29 (Depth: 3)',
-    'menu_url': '#menu_29',
+    'menu_url': '/menu_29',
     'menu_deep': 3,
     'menu_order': 28,
     'is_newtab': false,
@@ -234,7 +234,7 @@ var menus = [
   {
     'id': 30,
     'menu_title': 'Menu 30 (Depth: 3)',
-    'menu_url': '#menu_30',
+    'menu_url': '/menu_30',
     'menu_deep': 3,
     'menu_order': 29,
     'is_newtab': false,
@@ -242,7 +242,7 @@ var menus = [
   {
     'id': 31,
     'menu_title': 'Menu 31 (Depth: 3)',
-    'menu_url': '#menu_31',
+    'menu_url': '/menu_31',
     'menu_deep': 3,
     'menu_order': 30,
     'is_newtab': false,
@@ -250,7 +250,7 @@ var menus = [
   {
     'id': 32,
     'menu_title': 'Menu 32 (Depth: 2)',
-    'menu_url': '#menu_32',
+    'menu_url': '/menu_32',
     'menu_deep': 2,
     'menu_order': 31,
     'is_newtab': false,
@@ -258,7 +258,7 @@ var menus = [
   {
     'id': 33,
     'menu_title': 'Menu 33 (Depth: 3)',
-    'menu_url': '#menu_33',
+    'menu_url': '/menu_33',
     'menu_deep': 3,
     'menu_order': 32,
     'is_newtab': false,
@@ -266,7 +266,7 @@ var menus = [
   {
     'id': 34,
     'menu_title': 'Menu 34 (Depth: 3)',
-    'menu_url': '#menu_34',
+    'menu_url': '/menu_34',
     'menu_deep': 3,
     'menu_order': 33,
     'is_newtab': false,
@@ -274,7 +274,7 @@ var menus = [
   {
     'id': 35,
     'menu_title': 'Menu 35 (Depth: 3)',
-    'menu_url': '#menu_35',
+    'menu_url': '/menu_35',
     'menu_deep': 3,
     'menu_order': 34,
     'is_newtab': false,
@@ -282,7 +282,7 @@ var menus = [
   {
     'id': 36,
     'menu_title': 'Menu 36 (Depth: 1)',
-    'menu_url': '#menu_36',
+    'menu_url': '/menu_36',
     'menu_deep': 1,
     'menu_order': 35,
     'is_newtab': false,
@@ -290,7 +290,7 @@ var menus = [
   {
     'id': 37,
     'menu_title': 'Menu 37 (Depth: 2)',
-    'menu_url': '#menu_37',
+    'menu_url': '/menu_37',
     'menu_deep': 2,
     'menu_order': 36,
     'is_newtab': false,
@@ -298,7 +298,7 @@ var menus = [
   {
     'id': 38,
     'menu_title': 'Menu 38 (Depth: 2)',
-    'menu_url': '#menu_38',
+    'menu_url': '/menu_38',
     'menu_deep': 2,
     'menu_order': 37,
     'is_newtab': false,
@@ -306,7 +306,7 @@ var menus = [
   {
     'id': 39,
     'menu_title': 'Menu 39 (Depth: 3)',
-    'menu_url': '#menu_39',
+    'menu_url': '/menu_39',
     'menu_deep': 3,
     'menu_order': 38,
     'is_newtab': false,
@@ -314,7 +314,7 @@ var menus = [
   {
     'id': 40,
     'menu_title': 'Menu 40 (Depth: 3)',
-    'menu_url': '#menu_40',
+    'menu_url': '/menu_40',
     'menu_deep': 3,
     'menu_order': 39,
     'is_newtab': false,
@@ -322,7 +322,7 @@ var menus = [
   {
     'id': 41,
     'menu_title': 'Menu 41 (Depth: 3)',
-    'menu_url': '#menu_41',
+    'menu_url': '/menu_41',
     'menu_deep': 3,
     'menu_order': 40,
     'is_newtab': false,
@@ -330,7 +330,7 @@ var menus = [
   {
     'id': 42,
     'menu_title': 'Menu 42 (Depth: 2)',
-    'menu_url': '#menu_42',
+    'menu_url': '/menu_42',
     'menu_deep': 2,
     'menu_order': 41,
     'is_newtab': false,
@@ -338,7 +338,7 @@ var menus = [
   {
     'id': 43,
     'menu_title': 'Menu 43 (Depth: 3)',
-    'menu_url': '#menu_43',
+    'menu_url': '/menu_43',
     'menu_deep': 3,
     'menu_order': 42,
     'is_newtab': false,
@@ -346,7 +346,7 @@ var menus = [
   {
     'id': 44,
     'menu_title': 'Menu 44 (Depth: 3)',
-    'menu_url': '#menu_44',
+    'menu_url': '/menu_44',
     'menu_deep': 3,
     'menu_order': 43,
     'is_newtab': false,
@@ -354,7 +354,7 @@ var menus = [
   {
     'id': 45,
     'menu_title': 'Menu 45 (Depth: 3)',
-    'menu_url': '#menu_45',
+    'menu_url': '/menu_45',
     'menu_deep': 3,
     'menu_order': 44,
     'is_newtab': false,
