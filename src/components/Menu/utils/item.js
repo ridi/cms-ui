@@ -29,16 +29,10 @@ export function filterItems(items, match) {
 }
 
 export function flattenItemTrees(rootItems) {
-  const itemsHaveChildren = _.flatMapDeep(rootItems, item => ([
-    item,
+  return _.flatMapDeep(rootItems, item => [
+    _.omit(item, 'children'),
     flattenItemTrees(item.children),
-  ]));
-
-  return _.map(itemsHaveChildren, (itemHasChildren) => {
-    const item = { ...itemHasChildren };
-    delete item.children;
-    return item;
-  });
+  ]);
 }
 
 export function buildItemTrees(items) {
@@ -61,7 +55,6 @@ export function buildItemTrees(items) {
     }
 
     if (items[index + 1].depth > item.depth) {
-      delete itemHasChildren.href;
       parents.push(itemHasChildren);
     }
   });
