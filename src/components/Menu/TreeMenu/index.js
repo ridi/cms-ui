@@ -12,10 +12,13 @@ import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
 const isActiveUrl = (url) => {
-  const a = document.createElement('a');
-  a.href = url;
-  const trimCharacters = '/ ';
-  return _.trim(a.href, trimCharacters) === _.trim(window.location.href, trimCharacters);
+  const normalizeUrl = (_url) => {
+    const a = document.createElement('a');
+    a.href = _url;
+    return `${a.protocol}//${a.host}/${_.trim(a.pathname, '/ ')}${a.search}`;
+  };
+
+  return normalizeUrl(url) === normalizeUrl(window.location.href);
 };
 
 export default class TreeMenu extends React.Component {
