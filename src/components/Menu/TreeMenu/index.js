@@ -81,7 +81,9 @@ export default class TreeMenu extends React.Component {
     this.forceUpdate();
   }
 
-  onItemClick(item) {
+  onCollapseIndicatorClick(event, item) {
+    event.preventDefault();
+
     const { forceExpand } = this.props;
     if (forceExpand) {
       return;
@@ -146,12 +148,17 @@ export default class TreeMenu extends React.Component {
           ...item,
           title: (
             <React.Fragment>
-              <FA className={cm('collapse_indicator', { expanded })} icon={faCaretRight} />
+              <button
+                className={cm('collapse_indicator', { expanded })}
+                type="button"
+                onClick={e => this.onCollapseIndicatorClick(e, item)}
+              >
+                <FA className={cm('icon')} icon={faCaretRight} />
+              </button>
               {item.title}
             </React.Fragment>
           ),
         }}
-        onItemClick={this.onItemClick}
       >
         <Collapse isOpen={expanded}>
           <Nav vertical>

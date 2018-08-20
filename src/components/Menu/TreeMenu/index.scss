@@ -5,11 +5,34 @@
   & .item {
     & .title {
       & .collapse_indicator {
-        margin-left: -1.25em;
-        transition: transform .35s ease;
+        margin-left: -1.3rem;
+        margin-right: .1rem;
+        margin-top: -.25rem;
+        margin-bottom: -.25rem;
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        min-width: 0;
+        min-height: 0;
+        padding: 0;
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+        color: inherit;
+        background: none;
+
+        &:hover {
+          background: rgba($white, .25);
+        }
+
+        & > .icon {
+          transition: transform .35s ease;
+        }
 
         &.expanded {
-          transform: rotate(90deg);
+          & > .icon {
+            transform: rotate(90deg);
+          }
         }
       }
     }
@@ -55,4 +78,3 @@
     }
   }
 }
-
