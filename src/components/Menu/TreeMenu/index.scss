@@ -14,12 +14,6 @@
       }
     }
 
-    &.active {
-      & .title {
-        font-weight: bold;
-      }
-    }
-
     &.depth_0 {
       .title { padding-left: calc(1.25rem + .75rem * 0); }
     }

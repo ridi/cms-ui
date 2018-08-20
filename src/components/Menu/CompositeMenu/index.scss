@@ -93,7 +93,7 @@
         padding-bottom: 1rem;
 
         & .item {
-          & .title {
+          & > .title {
             color: rgba($white, .65);
 
             &:hover {
@@ -107,8 +107,14 @@
             }
           }
 
+          &:not(.leaf) {
+            & > .title {
+              font-weight: bold;
+            }
+          }
+
           &.leaf {
-            & .title {
+            & > .title {
               color: rgba($white, .5);
 
               &:hover {
@@ -118,7 +124,8 @@
           }
 
           &.active {
-            & .title {
+            & > .title {
+              font-weight: bold;
               color: $white;
               background-color: rgba($primary, .5);
             }

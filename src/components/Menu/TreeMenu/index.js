@@ -118,11 +118,13 @@ export default class TreeMenu extends React.Component {
   }
 
   renderItemTree(item, key) {
+    const active = isActiveUrl(item.href);
+
     if (_.isEmpty(item.children)) {
       return (
         <MenuItem
           key={key}
-          className={cm('leaf', `depth_${item.depth}`, { active: isActiveUrl(item.href) })}
+          className={cm('leaf', `depth_${item.depth}`, { active })}
           item={item}
         />
       );
@@ -132,10 +134,14 @@ export default class TreeMenu extends React.Component {
     const { expandedItemIds } = this.state;
 
     const expanded = forceExpand || expandedItemIds[item.id];
+
     return (
       <MenuItem
         key={key}
-        className={cm(`depth_${item.depth}`, { expanded })}
+        className={cm(`depth_${item.depth}`, {
+          active,
+          expanded,
+        })}
         item={{
           ...item,
           title: (
