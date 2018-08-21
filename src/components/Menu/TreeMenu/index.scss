@@ -5,13 +5,13 @@
   & .item {
     & .title {
       & .collapse_indicator {
-        margin-left: -1.3rem;
-        margin-right: .1rem;
+        margin-left: -1.5rem;
+        margin-right: 0;
         margin-top: -.25rem;
         margin-bottom: -.25rem;
         display: inline-block;
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         min-width: 0;
         min-height: 0;
         padding: 0;
@@ -22,11 +22,12 @@
         background: none;
 
         &:hover {
-          background: rgba($white, .25);
+          background: rgba($white, .1);
         }
 
         & > .icon {
           transition: transform .35s ease;
+          transform-origin: 45%;
         }
 
         &.expanded {
