@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Button, Input } from 'reactstrap';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
-import { filterItems } from '../utils/item';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
+import { filterItemsPostOrder } from '../utils/item';
 
 export default class MenuFilter extends React.Component {
   static propTypes = {
@@ -45,11 +45,17 @@ export default class MenuFilter extends React.Component {
       return;
     }
 
-    const match = item => _.every(keywords, keyword => (
-      _.includes(_.toLower(item.title), _.toLower(keyword))
-    ));
+    const match = (item, filteredChildren) => {
+      if (!_.isEmpty(filteredChildren)) {
+        return true;
+      }
 
-    const filteredItems = filterItems(items, match);
+      return _.every(keywords, keyword => (
+        _.includes(_.toLower(item.title), _.toLower(keyword))
+      ));
+    };
+
+    const filteredItems = filterItemsPostOrder(items, match);
 
     onFilter(filteredItems);
   }

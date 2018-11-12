@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import es6ClassBindAll from 'es6-class-bind-all';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Collapse, Nav } from 'reactstrap';
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { mapKeyValues } from '../../../utils/collection';
 import { getPassThroughProps } from '../../../utils/component';
 import { modularizeClassNames as cm } from '../../../utils/css';
-import { mapKeyValues } from '../../../utils/collection';
-import { filterItems, flattenItemTrees } from '../utils/item';
 import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
+import { filterItemsPostOrder, flattenItemTrees } from '../utils/item';
 
 const isActiveUrl = (url) => {
   const normalizeUrl = (_url) => {
@@ -106,7 +106,14 @@ export default class TreeMenu extends React.Component {
   }
 
   expandActiveItems(items) {
-    const activeItemTrees = filterItems(items, item => isActiveUrl(item.href));
+    const matchActiveItem = (item, filteredChildren) => {
+      if (!_.isEmpty(filteredChildren)) {
+        return true;
+      }
+      return isActiveUrl(item.href);
+    };
+
+    const activeItemTrees = filterItemsPostOrder(items, matchActiveItem);
     const activeItems = flattenItemTrees(activeItemTrees);
     const activeItemIds = mapKeyValues(activeItems, item => ([item.id, true]));
 
