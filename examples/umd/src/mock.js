@@ -12,7 +12,7 @@ export const getMenuItems = async () => {
     return {
       id,
       menu_title: `Menu ${id} (Depth: ${depth})`,
-      menu_url: `/menu_${id}`,
+      menu_url: depth > 0 ? `/menu_${id}` : '#',
       menu_deep: depth,
       menu_order: order,
       is_newtab: false,

@@ -2,7 +2,7 @@ var menus = [
   {
     'id': 1,
     'menu_title': 'Menu 1 (Depth: 0)',
-    'menu_url': '/menu_1',
+    'menu_url': '#',
     'menu_deep': 0,
     'menu_order': 0,
     'is_newtab': false,
@@ -10,7 +10,7 @@ var menus = [
   {
     'id': 2,
     'menu_title': 'Menu 2 (Depth: 0)',
-    'menu_url': '/menu_2',
+    'menu_url': '#',
     'menu_deep': 0,
     'menu_order': 1,
     'is_newtab': false,
@@ -186,7 +186,7 @@ var menus = [
   {
     'id': 24,
     'menu_title': 'Menu 24 (Depth: 0)',
-    'menu_url': '/menu_24',
+    'menu_url': '#',
     'menu_deep': 0,
     'menu_order': 23,
     'is_newtab': false,
