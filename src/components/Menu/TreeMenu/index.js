@@ -12,6 +12,10 @@ import MenuItem from '../MenuItem';
 import { filterItemsPostOrder, flattenItemTrees } from '../utils/item';
 
 const isActiveUrl = (url) => {
+  if (url === '#') {
+    return false;
+  }
+
   const normalizeUrl = (_url) => {
     const a = document.createElement('a');
     a.href = _url;
