@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- Ignore hashtag on check active URL (#53)
+- Update `postcss-flexbugs-fixes` (#50)
+- Update `postcss-import` (#47)
+- Update `postcss-loader` (#49)
+- Update `webpack` (#61)
+- Update `style-loader` (#52, #62)
+- Update `babel-eslint` (#63)
+- Update `babel-loader` (#64)
+- Update `recompose` (#50, #65)
+- Update `react` (#66)
+- Update `fortawesome` (#67)
+
 ## [0.3.8] - 2018-08-08
 ### Fixed
 - Revert wrong bug fix | 8f90761
