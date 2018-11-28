@@ -29,7 +29,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reactstrap": "^6.1.0",
-    "recompose": "^0.28.2"
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
