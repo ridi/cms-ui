@@ -4,8 +4,7 @@ script: make build
 deploy:
   provider: npm
   email: performance.team@ridi.com
-  api_key:
-    secure: QWBefXWK+eU739661YRHqSPyfIHZJ6opZN/WsQtl8IUzwNkPRRi9GBrgRenCINsvb82BO5hp5SFkdOuCHnRqJrxDD0wOzEIs61gRqYQlAb7uDcpkB4Gs1YezmSDWCvpKja5NEpqEvYwUSqX/ovWHHxTCMS/WcU7T+GfLS3K0dDe2nqcICEvPNPVi+VenUYZJ5jNOr0sVQkuINvwciPiHxz77mSBFoZVxF/0J0rETJRo3o9VHSAamCSMItwl2S8rjc7xEX3V+1D2og4aqo/VZOw+GKfanA/afgPhnfLAkOLbZcaV01YrjxAxLmA2lAqBV0JaSxfk65IcPPzF7akG0qsMSQ8KyExzgozLGkH+1ddFOSAp1yR9d/yOdsVcviTXxQHZwyT5G5d9f+K3/izLNrMvUiGwKjV8gXnomAm/Z6h9RI6gXYu1u8VqoQXJhTikRQPpa5wC1oNlFVs0Z0TPHVhsVDgmlwOFaeclNDs2TPHgsPhz7NjGM8pQwWQp8RQFSTpdxyJcX+EAIIPNCioYluKt8+r6Vc+mk9DEJQibCxaUSmqy1zFZE1rkzG8oWiXjE/NjsSQJivH9w1Pev3oIdSgS04I3Phre2hFfespq0Eo01k7G9pgW8x0czA7yC1LKBlPyt1iPzCOT7r9taeU53KSwgR6WftSKVjFdBoEW3QLU=
+  api_key: $NPM_TOKEN
   on:
     tags: true
     repo: ridi/cms-ui
