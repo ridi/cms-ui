@@ -28,7 +28,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "reactstrap": "^6.1.0",
+    "reactstrap": "^7.1.0",
     "recompose": "^0.30.0"
   },
   "devDependencies": {
@@ -38,8 +38,8 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-lodash": "^3.3.2",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-react-app": "^6.1.0",
-    "css-loader": "^1.0.0",
+    "babel-preset-react-app": "^7.0.2",
+    "css-loader": "^2.1.1",
     "cssnano": "^4.0.0-rc.2",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
