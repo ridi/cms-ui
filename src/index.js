@@ -1,6 +1,6 @@
-import 'core-js/es6/map';
-import 'core-js/es6/set';
-import 'core-js/es6/object';
+import 'core-js/es/map';
+import 'core-js/es/set';
+import 'core-js/es/object';
 import { setGlobalCssModule } from './utils/css';
 import cssModule from './styles/index.module.scss';
 
