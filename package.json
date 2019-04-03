@@ -28,7 +28,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "reactstrap": "^7.1.0",
+    "reactstrap": "^8.0.0",
     "recompose": "^0.30.0"
   },
   "devDependencies": {
