@@ -32,7 +32,7 @@
     "recompose": "^0.30.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.5.5",
     "@ridi/eslint-config": "^4.1.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
