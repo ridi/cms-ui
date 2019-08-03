@@ -2,7 +2,6 @@
 
 [![npm (scoped)](https://img.shields.io/npm/v/@ridi/cms-ui.svg)](https://www.npmjs.com/package/@ridi/cms-ui)
 [![Build Status](https://travis-ci.org/ridi/cms-ui.svg?branch=master)](https://travis-ci.org/ridi/cms-ui)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ridi/cms-ui.svg)](https://greenkeeper.io/)
 
 UI components for [*Ridibooks CMS SDK*](https://github.com/ridi/cms-sdk).
 
