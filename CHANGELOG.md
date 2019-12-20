@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `react` (#66)
 - Update `fortawesome` (#67)
 
+## [0.3.9] - 2019-12-20
+### Changed
+- Change title to RIDI | ce21579
+
 ## [0.3.8] - 2018-08-08
 ### Fixed
 - Revert wrong bug fix | 8f90761
