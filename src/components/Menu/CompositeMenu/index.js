@@ -83,7 +83,7 @@ export default class CompositeMenu extends React.Component {
         <Navbar className={cm('navigation_bar')} expand="xl" dark>
           <NavbarBrand className={cm('title')} href="/">
             <span className={cm('ridibooks')}>
-              RIDIBOOKS
+              RIDI
             </span>
             CMS
           </NavbarBrand>
