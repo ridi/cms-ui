@@ -31,6 +31,7 @@ module.exports = (options) => {
 
   const sassLoaderOptions = {
     sourceMap,
+    implementation: require("sass"),
   };
 
   const externals = (() => {
