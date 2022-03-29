@@ -21,6 +21,7 @@
     "react/forbid-foreign-prop-types": "off",
     "react/jsx-filename-extension": "off",
     "template-curly-spacing" : "off",
-    "indent" : "off"
+    "indent" : "off",
+    "react/jsx-props-no-spreading": "warn"
   }
 }

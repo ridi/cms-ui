@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { buildItemTrees } from './utils/item';
 
 function mapItemProperties(items) {
-  return _.map(items, item => ({
+  return items.map((item) => ({
     id: item.id,
     title: item.menu_title,
     href: item.menu_url,

@@ -11,18 +11,6 @@ import FA from '../../FontAwesome';
 import MenuItem from '../MenuItem';
 
 export default class MenuFilter extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
-    onFilter: PropTypes.func,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    items: undefined,
-    onFilter: () => {},
-  };
-
   constructor(props) {
     super(props);
 
@@ -45,7 +33,7 @@ export default class MenuFilter extends React.Component {
       return;
     }
 
-    const match = item => _.every(keywords, keyword => (
+    const match = (item) => _.every(keywords, (keyword) => (
       _.includes(_.toLower(item.title), _.toLower(keyword))
     ));
 
@@ -84,3 +72,15 @@ export default class MenuFilter extends React.Component {
     );
   }
 }
+
+MenuFilter.propTypes = {
+  className: PropTypes.string,
+  items: PropTypes.arrayOf(MenuItem.propTypes.item),
+  onFilter: PropTypes.func,
+};
+
+MenuFilter.defaultProps = {
+  className: undefined,
+  items: undefined,
+  onFilter: () => {},
+};

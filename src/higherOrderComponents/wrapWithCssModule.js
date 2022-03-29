@@ -8,7 +8,7 @@ import { getGlobalCssModule } from '../utils/css';
 
 export default function wrapWithCssModule() {
   return (Component) => {
-    const WrappedComponent = props => (
+    const WrappedComponent = (props) => (
       <div className={getGlobalCssModule().root}>
         <Component {...props} />
       </div>
