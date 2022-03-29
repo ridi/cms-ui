@@ -9,16 +9,6 @@ import MenuFilter from '../MenuFilter';
 import TreeMenu from '../TreeMenu';
 
 export default class FilterableMenu extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    items: TreeMenu.propTypes.items,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    items: TreeMenu.defaultProps.items,
-  };
-
   constructor(props) {
     super(props);
 
@@ -67,3 +57,13 @@ export default class FilterableMenu extends React.Component {
     );
   }
 }
+
+FilterableMenu.propTypes = {
+  className: PropTypes.string,
+  items: TreeMenu.propTypes.items,
+};
+
+FilterableMenu.defaultProps = {
+  className: undefined,
+  items: TreeMenu.defaultProps.items,
+};

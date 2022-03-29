@@ -15,20 +15,6 @@ const itemShape = {
 itemShape.children = PropTypes.arrayOf(PropTypes.shape(itemShape));
 
 export default class MenuItem extends React.PureComponent {
-  static propTypes = {
-    className: PropTypes.string,
-    item: PropTypes.shape(itemShape),
-    children: PropTypes.node,
-    onItemClick: PropTypes.func,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    item: undefined,
-    children: undefined,
-    onItemClick: () => {},
-  };
-
   constructor(props) {
     super(props);
     es6ClassBindAll(this);
@@ -60,3 +46,17 @@ export default class MenuItem extends React.PureComponent {
     );
   }
 }
+
+MenuItem.propTypes = {
+  className: PropTypes.string,
+  item: PropTypes.shape(itemShape),
+  children: PropTypes.node,
+  onItemClick: PropTypes.func,
+};
+
+MenuItem.defaultProps = {
+  className: undefined,
+  item: undefined,
+  children: undefined,
+  onItemClick: () => {},
+};

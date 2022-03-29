@@ -18,16 +18,6 @@ import FA from '../../FontAwesome';
 const mediaQueryList = window.matchMedia('(min-width: 1200px)');
 
 export default class CompositeMenu extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    items: FilterableMenu.propTypes.items,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    items: FilterableMenu.defaultProps.items,
-  };
-
   constructor(props) {
     super(props);
 
@@ -111,3 +101,13 @@ export default class CompositeMenu extends React.Component {
     );
   }
 }
+
+CompositeMenu.propTypes = {
+  className: PropTypes.string,
+  items: FilterableMenu.propTypes.items,
+};
+
+CompositeMenu.defaultProps = {
+  className: undefined,
+  items: FilterableMenu.defaultProps.items,
+};

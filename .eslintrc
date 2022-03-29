@@ -22,10 +22,6 @@
     "react/jsx-filename-extension": "off",
     "template-curly-spacing" : "off",
     "indent" : "off",
-    "react/static-property-placement": "off",
-    "react/jsx-props-no-spreading": "off",
-    "arrow-parens": "off",
-    "react/no-deprecated": "off",
-    "react/jsx-fragments": "off"
+    "react/jsx-props-no-spreading": "warn"
   }
 }

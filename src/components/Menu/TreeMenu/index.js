@@ -38,18 +38,6 @@ export default class TreeMenu extends React.Component {
     TreeMenu.stateStorage.setItem(TreeMenu.STATE_STORAGE_KEY, JSON.stringify(state));
   }
 
-  static propTypes = {
-    className: PropTypes.string,
-    items: PropTypes.arrayOf(MenuItem.propTypes.item),
-    forceExpand: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    className: undefined,
-    items: undefined,
-    forceExpand: false,
-  };
-
   constructor(props) {
     super(props);
 
@@ -68,6 +56,7 @@ export default class TreeMenu extends React.Component {
     this.expandActiveItems(items);
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     const { items } = nextProps;
     this.expandActiveItems(items);
@@ -104,9 +93,9 @@ export default class TreeMenu extends React.Component {
   }
 
   expandActiveItems(items) {
-    const activeItemTrees = filterItems(items, item => isActiveUrl(item.href));
+    const activeItemTrees = filterItems(items, (item) => isActiveUrl(item.href));
     const activeItems = flattenItemTrees(activeItemTrees);
-    const activeItemIds = mapKeyValues(activeItems, item => ([item.id, true]));
+    const activeItemIds = mapKeyValues(activeItems, (item) => ([item.id, true]));
 
     const { expandedItemIds } = this.state;
     this.setState({
@@ -139,10 +128,10 @@ export default class TreeMenu extends React.Component {
         item={{
           ...item,
           title: (
-            <React.Fragment>
+            <>
               <FA className={cm('collapse_indicator', { expanded })} icon={faCaretRight} />
               {item.title}
-            </React.Fragment>
+            </>
           ),
         }}
         onItemClick={this.onItemClick}
@@ -169,3 +158,15 @@ export default class TreeMenu extends React.Component {
     );
   }
 }
+
+TreeMenu.propTypes = {
+  className: PropTypes.string,
+  items: PropTypes.arrayOf(MenuItem.propTypes.item),
+  forceExpand: PropTypes.bool,
+};
+
+TreeMenu.defaultProps = {
+  className: undefined,
+  items: undefined,
+  forceExpand: false,
+};

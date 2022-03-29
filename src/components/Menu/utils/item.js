@@ -29,7 +29,7 @@ export function filterItems(items, match) {
 }
 
 export function flattenItemTrees(rootItems) {
-  const itemsHaveChildren = _.flatMapDeep(rootItems, item => ([
+  const itemsHaveChildren = _.flatMapDeep(rootItems, (item) => ([
     item,
     flattenItemTrees(item.children),
   ]));
